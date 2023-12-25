@@ -11,6 +11,11 @@
 % Berechnen Sie mit Hilfe des erstellten Programmes den Funktionswert und 
 % die Ableitung an der Stelle x = 0.6 und plotten Sie die jeweilige 
 % Funktion sowie die Ableitung der untenstehenden Lagrange-Interpolation.
+
+% x     :   ausgewertete Position
+% n     :   Ordnung (Grad)
+% x_node:   x-Wert von den Stützstellen (x, y)
+% f_node:   y-Wert von den Stützstellen (x, y)
 % ===============================================================================
 close
 clear
