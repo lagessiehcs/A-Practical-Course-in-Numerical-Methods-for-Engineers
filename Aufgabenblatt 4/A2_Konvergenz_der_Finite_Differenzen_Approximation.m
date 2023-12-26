@@ -36,9 +36,6 @@ plot(h,abs(f_diff_exakt(x0)-f_diff_2P(x0)), 'DisplayName','Zweipunkte-Formel') %
 
 plot(h,h.^2,'k--','DisplayName','h^2');
 plot(h,abs(f_diff_exakt(x0)-f_diff_3PE(x0)), 'DisplayName', 'Dreipunkte-Endpunkt-Formel') % Dreipunkte-Endpunkt-Formel
-
-
-plot(h,h.^2,'k--');
 plot(h,abs(f_diff_exakt(x0)-f_diff_3PM(x0)), 'DisplayName', 'Dreipunkte-Mittelpunkt-Formel') % Dreipunkte-Mittelpunkt-Formel
 
 
@@ -63,9 +60,6 @@ plot(h,abs(f_diff_exakt(x0)-f_diff_2P(x0)), 'DisplayName','Zweipunkte-Formel') %
 
 plot(h,h.^2,'k--','DisplayName','h^2');
 plot(h,abs(f_diff_exakt(x0)-f_diff_3PE(x0)), 'DisplayName', 'Dreipunkte-Endpunkt-Formel') % Dreipunkte-Endpunkt-Formel
-
-
-plot(h,h.^2,'k--');
 plot(h,abs(f_diff_exakt(x0)-f_diff_3PM(x0)), 'DisplayName', 'Dreipunkte-Mittelpunkt-Formel') % Dreipunkte-Mittelpunkt-Formel
 
 
