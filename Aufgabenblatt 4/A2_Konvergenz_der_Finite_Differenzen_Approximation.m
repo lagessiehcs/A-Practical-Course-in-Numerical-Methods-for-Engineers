@@ -27,32 +27,55 @@ f_diff_exakt =@(x0) f_diff(x0);
 %% Plotten des Fehlers der Finite-Differenzen-Approximation:
 %% x0 = 0.6
 x0 = 0.6;
-k = logspace(-2,1,1000);
 figure(1)
-
-% loglog(h,h,'k--','DisplayName','h');
-% hold on
-% loglog(h,abs(f_diff_exakt(x0)-f_diff_2P(x0)), 'DisplayName','FD2P') % Zweipunkte-Formel
-% hold off
-
-% loglog(h,h.^2,'k--','DisplayName','h^2');
-% hold on
-% loglog(h,abs(f_diff_exakt(x0)-f_diff_3PE(x0)), 'DisplayName', 'FD3E') % Dreipunkte-Endpunkt-Formel
-% hold off
-
-% loglog(h,h.^2,'k--','DisplayName','h^2');
-% hold on
-% loglog(h,abs(f_diff_exakt(x0)-f_diff_3PM(x0)), 'DisplayName', 'FD3M') % Dreipunkte-Mittelpunkt-Formel
-% hold off
-
-loglog(h,h.^4,'k--','DisplayName','h^4');
 hold on
-loglog(h,abs(f_diff_exakt(x0)-f_diff_5P(x0)),'DisplayName', 'FD5M') % Fünfpunkte-Mittelpunkt-Formel
-hold off
 
-title('Konvegenzplot Finite Differenzen')
+plot(h,h,'k:','DisplayName','h');
+plot(h,abs(f_diff_exakt(x0)-f_diff_2P(x0)), 'DisplayName','FD2P') % Zweipunkte-Formel
+
+
+plot(h,h.^2,'k--','DisplayName','h^2');
+plot(h,abs(f_diff_exakt(x0)-f_diff_3PE(x0)), 'DisplayName', 'FD3E') % Dreipunkte-Endpunkt-Formel
+
+
+plot(h,h.^2,'k--');
+plot(h,abs(f_diff_exakt(x0)-f_diff_3PM(x0)), 'DisplayName', 'FD3M') % Dreipunkte-Mittelpunkt-Formel
+
+
+plot(h,h.^4,'k-.','DisplayName','h^4');
+plot(h,abs(f_diff_exakt(x0)-f_diff_5P(x0)),'DisplayName', 'FD5M') % Fünfpunkte-Mittelpunkt-Formel
+
+set(gca, 'XScale', 'log');
+set(gca, 'YScale', 'log');
+title('Konvegenzplot Finite Differenzen für x_0 = 0.6')
 xlabel('h')
 ylabel("|f'(x = x_0) - f_{approx}(x = x_0)|")
 legend('Location','northwest')
 
+%% x0 = 2.0
+x0 = 2.0;
+figure(2)
+hold on
+
+plot(h,h,'k:','DisplayName','h');
+plot(h,abs(f_diff_exakt(x0)-f_diff_2P(x0)), 'DisplayName','FD2P') % Zweipunkte-Formel
+
+
+plot(h,h.^2,'k--','DisplayName','h^2');
+plot(h,abs(f_diff_exakt(x0)-f_diff_3PE(x0)), 'DisplayName', 'FD3E') % Dreipunkte-Endpunkt-Formel
+
+
+plot(h,h.^2,'k--');
+plot(h,abs(f_diff_exakt(x0)-f_diff_3PM(x0)), 'DisplayName', 'FD3M') % Dreipunkte-Mittelpunkt-Formel
+
+
+plot(h,h.^4,'k-.','DisplayName','h^4');
+plot(h,abs(f_diff_exakt(x0)-f_diff_5P(x0)),'DisplayName', 'FD5M') % Fünfpunkte-Mittelpunkt-Formel
+
+set(gca, 'XScale', 'log');
+set(gca, 'YScale', 'log');
+title('Konvegenzplot Finite Differenzen für x_0 = 2.0')
+xlabel('h')
+ylabel("|f'(x = x_0) - f_{approx}(x = x_0)|")
+legend('Location','northwest')
 
