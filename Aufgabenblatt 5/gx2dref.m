@@ -1,7 +1,7 @@
 function gaussx = gx2dref(n)
 
 % ======================================================
-% Fkt IV
+% Fkt V
 % Diese Funktionen sollen für den 
 % Intervall [a, b] = [-1, 1] und n < 4 erstellt werden.
 %
