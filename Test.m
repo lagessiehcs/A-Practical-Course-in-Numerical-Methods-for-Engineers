@@ -2,7 +2,6 @@ clear
 clc
 addpath("Aufgabenblatt 1\","Aufgabenblatt 3\","Aufgabenblatt 5\")
 Test_text
-
 disp('=========================================== Modultest ===========================================')
 
 
@@ -353,6 +352,185 @@ if ~error
             fprintf(2,test_failed{test}{1},test_function,diff_max)
         elseif ~isequal(size(unique(test_function,'rows')), size(test_function)) % check if all rows are unique
             fprintf(2,test_failed{test}{2},test_function)
+        else
+            fprintf(test_passed{test})
+    
+        end    
+    end
+
+end
+
+%% Test 12: gw2dref(1) = [4.0] ? 
+%  (Reihenfolge der Gaußpunkte ist beliebig)
+%  (Aufgabenblatt 5)
+
+test          = 12;
+n             = 1;
+result        = 4.0;
+size_result   = [n^2,1];
+tol           = 1e-12;
+error         = false;
+
+try 
+    test_function = gw2dref(n);
+catch
+    fprintf(2,test_error{test})
+    error = true;
+end
+
+if ~error
+      
+    if ~isequal(size(test_function), size_result)
+        fprintf(2,test_wrong_format{test},size(test_function))
+    else
+        diff = abs(test_function-result);
+        if ~all(diff<=tol)
+            fprintf(2,test_failed{test},test_function,diff)
+        else
+            fprintf(test_passed{test})
+    
+        end    
+    end
+
+end
+
+%% Test 13: gw2dref(2) = [1.0;1.0;1.0;1.0]? 
+%  (Reihenfolge der Gaußpunkte ist beliebig)
+%  (Aufgabenblatt 5)
+
+test          = 13;
+n             = 2;
+result        = [1.0;1.0;1.0;1.0];
+size_result   = [n^2,1];
+tol           = 1e-12;
+error         = false;
+
+try 
+    test_function = gw2dref(n);
+catch
+    fprintf(2,test_error{test})
+    error = true;
+end
+
+if ~error
+      
+    if ~isequal(size(test_function), size_result)
+        fprintf(2,test_wrong_format{test},size(test_function))
+    else
+        diff = abs(test_function-result);
+        if ~all(diff<=tol)
+            fprintf(2,test_failed{test},test_function,diff)
+        else
+            fprintf(test_passed{test})
+    
+        end    
+    end
+
+end
+
+%% Test 14: gw2dref(2) = [0.308642;0.493827;0.308642;0.493827;0.790123;0.493827;0.308642;0.493827;0.308642]? 
+%  (Reihenfolge der Gaußpunkte ist beliebig)
+%  (Aufgabenblatt 5)
+
+test          = 14;
+n             = 3;
+result        = [0.308642;0.493827;0.308642;0.493827;0.790123;0.493827;0.308642;0.493827;0.308642];
+size_result   = [n^2 1];
+tol           = 1e-6;
+error         = false;
+
+try 
+    test_function = gw2dref(n);
+catch
+    fprintf(2,test_error{test})
+    error = true;
+end
+
+if ~error
+
+    test_function_sorted = sort(test_function);
+    result_sorted        = sort(result);
+    
+    
+    if ~isequal(size(test_function), size_result)
+        fprintf(2,test_wrong_format{test},size(test_function))
+    else
+        diff = abs(test_function_sorted-result_sorted);
+        if ~all(diff<=tol)
+            fprintf(2,test_failed{test},result_sorted,test_function_sorted,diff)
+        else
+            fprintf(test_passed{test})
+    
+        end    
+    end
+
+end
+
+%% Test 15: getxPos([2, 1; 4, 1; 4, 3; 2, 2], 0.577, -0.577) = [3.577; 1.37826775]? 
+%  (Reihenfolge der Gaußpunkte ist beliebig)
+%  (Aufgabenblatt 5)
+
+test          = 15;
+result        = [3.577; 1.37826775];
+size_result   = [2 1];
+tol           = 1e-12;
+error         = false;
+
+try 
+    test_function = getxPos([2, 1; 4, 1; 4, 3; 2, 2], 0.577, -0.577);
+catch
+    fprintf(2,test_error{test})
+    error = true;
+end
+
+if ~error    
+    
+    if ~isequal(size(test_function), size_result)
+        fprintf(2,test_wrong_format{test},size(test_function))
+    else
+        diff = abs(test_function-result);
+        if ~all(diff<=tol)
+            fprintf(2,test_failed{test},result,test_function,diff)
+        else
+            fprintf(test_passed{test})
+    
+        end    
+    end
+
+end
+
+%% Test 16: getJacobian([2,1;4,1;4,3;2,2],0.577,-0.577) = [[1.0, 0; 0.10575, 0.89425], 0.89425, [1.0,0;-0.1182555,1.1182555]]? 
+%  (Aufgabenblatt 5)
+
+test          = 16;
+result_J      = [1.0, 0; 0.10575, 0.89425];
+result_detJ   = 0.89425;
+result_invJ   = [1.0,0;-0.1182555,1.1182555];
+size_result   = [2 1];
+tol           = 1e-6;
+error         = false;
+
+try 
+    [test_J,test_detJ,test_invJ] = getJacobian([2, 1; 4, 1; 4, 3; 2, 2], 0.577, -0.577);
+catch
+    fprintf(2,test_error{test})
+    error = true;
+end
+
+if ~error    
+    
+    if ~( isequal(size(test_J), size(result_J))       && ...
+          isequal(size(test_detJ), size(result_detJ)) && ...
+          isequal(size(test_invJ), size(result_invJ))  )
+
+        fprintf(2,test_wrong_format{test},size(test_J),size(test_detJ),size(test_invJ))
+    else
+        diff_J    = abs(test_J-result_J);
+        diff_detJ = abs(test_detJ-result_detJ);
+        diff_invJ = abs(test_invJ-result_invJ);
+
+        if ~( all(diff_J(:)<=tol) && all(diff_detJ(:)<=tol) && all(diff_invJ(:)<=tol) )
+            fprintf(2,test_failed{test},result,test_function,diff_J,diff_detJ,diff_invJ)
         else
             fprintf(test_passed{test})
     
