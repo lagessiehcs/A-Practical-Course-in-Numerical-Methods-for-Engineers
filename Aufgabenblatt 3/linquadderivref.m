@@ -1,6 +1,6 @@
 function deriv = linquadderivref(xi,eta)
 % ======================================
-% Fkt. II
+% Fkt II
 % ======================================
 
 
