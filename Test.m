@@ -530,7 +530,7 @@ if ~error
         diff_invJ = abs(test_invJ-result_invJ);
 
         if ~( all(diff_J(:)<=tol) && all(diff_detJ(:)<=tol) && all(diff_invJ(:)<=tol) )
-            fprintf(2,test_failed{test},result,test_function,diff_J,diff_detJ,diff_invJ)
+            fprintf(2,test_failed{test},test_J,test_detJ,test_invJ,diff_J,diff_detJ,diff_invJ)
         else
             fprintf(test_passed{test})
     
