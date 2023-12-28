@@ -17,173 +17,96 @@
 % x_node:   x-Wert von den Stützstellen (x, y)
 % f_node:   y-Wert von den Stützstellen (x, y)
 % ===============================================================================
-close
+close all
 clear
 clc
 
 fx = @(x) (x./(1+x)).^5; % exakte Funktion
-dfx = @(x) (5.*x.^4)./(x + 1).^5 - (5.*x.^5)./(x + 1).^6; % exakte erste Ableitung
+f_diffx = @(x) (5.*x.^4)./(x + 1).^5 - (5.*x.^5)./(x + 1).^6; % exakte erste Ableitung
 
-% Wenden dies auf folgende Fälle an:
+x_node_sample = [      0.0             1.0           2.0            3.0           4.0      ];
+f_node_sample = [0.000000000000 0.031250000000 0.131687242798 0.237304687500 0.327680000000];
+Grad          = [1 4 80];
+f_L           = zeros(1,length(Grad));                   % Lagrange-Polynomen
+f_L_diff      = zeros(1,length(Grad)); % Ableitung der Lagrange-Polynome
+x_auswertung  = 0.6;
 
-%% a) Polynome vom Grad 1. Verwenden Sie nur die Punkte x (x_node) = 0.0 und x = 1.0.
-n = 1; % Grad 1
-x_node = [0.0 1.0];
-f_node = [0.000000000000 0.031250000000];
+% Wenden dies auf folgende Fälle an: n = 1, n=4, n = 80
 
-x = 0.6;
-f_L1 = LagrangePolynom(x,n,x_node,f_node);
-df_L1 = LagrangeDerivPolynom(x,n,x_node,f_node);
+for i = 1:length(Grad) % Iteration für Grad 1, 4, 80
 
-% Plot Ergebnis
-figure(1)
-hold on
-x = 0:0.01:1;
-f = LagrangePolynom(x,n,x_node,f_node);
-df =  LagrangeDerivPolynom(x,n,x_node,f_node);
+    n = Grad(i);
 
-f_exakt = (x./(1+x)).^5; % Exakte funktion
-df_exakt = dfx(x);
+    switch n
+        case 1
+            x_node = x_node_sample(1:2);
+            f_node = f_node_sample(1:2);
+            x = 0:0.01:1;
 
-plot(x, f_exakt, ...
-    'LineWidth', 1.5, 'Color', 'k', ...
-    'DisplayName', 'Exakte Funktion f(x)')
+        case 4
+            x_node = x_node_sample(1:5);
+            f_node = f_node_sample(1:5);
+            x = 0:0.01:4;
 
-plot(x, df_exakt, ...
-    '--','LineWidth', 1.5, 'Color', 'k', ...
-    'DisplayName', 'Exakte Ableitung df(x)/dx')
+        case 80
+            x_node = linspace(0,4,81);
+            f_node = fx(x_node);
+            x = 0:0.01:4;
+    end
 
-plot(x, f, ...
-    'LineWidth', 1, 'Color', "#0072BD", ...
-    'DisplayName', 'Polynom P1')
+    % Auswertung an der Stelle x = 0.6
+    f_L(i)      = LagrangePolynom(x_auswertung,n,x_node,f_node);
+    f_L_diff(i) = LagrangeDerivPolynom(x_auswertung,n,x_node,f_node);    
+   
+    
+    % Plot Lagrange-Polynom
+    figure(i)
+    hold on
+    f = LagrangePolynom(x,n,x_node,f_node);
+    f_diff =  LagrangeDerivPolynom(x,n,x_node,f_node);
+    
+    f_exakt = (x./(1+x)).^5; % Exakte funktion
+    f_diff_exakt = f_diffx(x);
+    
+    plot(x, f_exakt, ...
+        'LineWidth', 1.5, 'Color', 'k', ...
+        'DisplayName', 'Exakte Funktion f(x)')
+    
+    plot(x, f_diff_exakt, ...
+        '--','LineWidth', 1.5, 'Color', 'k', ...
+        'DisplayName', 'Exakte Ableitung df(x)/dx')
+    
+    plot(x, f, ...
+        'LineWidth', 1, 'Color', "#0072BD", ...
+        'DisplayName', ['Polynom P',num2str(n)])
+    
+    
+    plot(x, f_diff, ...
+        'LineWidth', 1, 'Color', "#D95319", ...
+        'DisplayName', ['erste Ableitung Polynom P',num2str(n)])        
+    
+    scatter(x_node,f_node, ...
+        'filled','k', ...
+        'DisplayName', 'Stützstellen')
+    
+    title(['Lagrangesches Interpolationspolynom vom Grad ',num2str(n)])
+    xlabel('x')
+    ylabel('f(x)')
+    legend('Location','southeast')
+    if n == 80
+        ylim([-0.05 0.35])
+    end
+    grid on 
 
-scatter(0.6, LagrangePolynom(0.6,n,x_node,f_node), ...
-    'filled', 'MarkerFaceColor', "#0072BD", ...
-    'DisplayName', 'Polynom P1 an der Stelle x = 0.6')
+end
 
-plot(x, df, ...
-    'LineWidth', 1, 'Color', "#D95319", ...
-    'DisplayName', 'erste Ableitung Polynom P1')        
+% Auswertung an der Stelle x = 0.6
+f_L1      = f_L(1);
+f_L1_diff = f_L_diff(1);
 
-scatter(0.6, LagrangeDerivPolynom(0.6,n,x_node,f_node), ...
-    'filled', 'MarkerFaceColor', "#D95319", ...
-    'DisplayName', 'erste Ableitung Polynom P1 an der Stelle x = 0.6') 
+f_L4      = f_L(2);
+f_L4_diff = f_L_diff(2);
 
-scatter(x_node,f_node, ...
-    'filled','k', ...
-    'DisplayName', 'Stützstellen')
-
-title('Lagrangesches Interpolationspolynom vom Grad 1')
-xlabel('x')
-ylabel('f(x)')
-legend('Location','southeast')
-grid on 
-
-
-%% b) Polynome vom Grad 4.
-n = 4; % Grad 4
-x_node = [0.0 1.0 2.0 3.0 4.0];
-f_node = [0.000000000000 0.031250000000 0.131687242798 0.237304687500 0.327680000000];
-
-x = 0.6;
-f_L4 = LagrangePolynom(x,n,x_node,f_node);
-df_L4 = LagrangeDerivPolynom(x,n,x_node,f_node);
-
-% Plot Ergebnis
-figure(2)
-hold on
-x = 0:0.01:4;
-f = LagrangePolynom(x,n,x_node,f_node);
-df = LagrangeDerivPolynom(x,n,x_node,f_node);
-
-f_exakt = fx(x); % Exakte funktion
-df_exakt = dfx(x);
-
-plot(x, f_exakt, ...
-    'LineWidth', 1.5, 'Color', 'k', ...
-    'DisplayName', 'Exakte Funktion f(x)')
-
-plot(x, df_exakt, ...
-    '--','LineWidth', 1.5, 'Color', 'k', ...
-    'DisplayName', 'Exakte Ableitung df(x)/dx')
-
-plot(x, f, ...
-    'LineWidth', 1, 'Color', "#0072BD", ...
-    'DisplayName', 'Polynom P4')
-
-scatter(0.6, LagrangePolynom(0.6,n,x_node,f_node), ...
-    'filled', 'MarkerFaceColor', "#0072BD", ...
-    'DisplayName', 'Polynom P4 an der Stelle x = 0.6')
-
-plot(x, df, ...
-    'LineWidth', 1, 'Color', "#D95319", ...
-    'DisplayName', 'erste Ableitung Polynom P4')        
-
-scatter(0.6, LagrangeDerivPolynom(0.6,n,x_node,f_node), ...
-    'filled', 'MarkerFaceColor', "#D95319", ...
-    'DisplayName', 'erste Ableitung Polynom P4 an der Stelle x = 0.6') 
-
-scatter(x_node,f_node, ...
-    'filled','k', ...
-    'DisplayName', 'Stützstellen')
-
-title('Lagrangesches Interpolationspolynom vom Grad 4')
-xlabel('x')
-ylabel('f(x)')
-legend('Location','southeast')
-grid on 
-
-%% c) Polynome vom Grad 80.
-n = 80; % Grad 80
-x_node = linspace(0,4,81);
-f_node = fx(x_node);
-
-x = 0.6;
-f_L80 = LagrangePolynom(x,n,x_node,f_node);
-df_L80 = LagrangeDerivPolynom(x,n,x_node,f_node);
-
-% Plot Ergebnis
-figure(3)
-hold on
-x = 0:0.01:4;
-f = LagrangePolynom(x,n,x_node,f_node);
-df = LagrangeDerivPolynom(x,n,x_node,f_node);
-
-f_exakt = fx(x); % Exakte funktion
-df_exakt = dfx(x);
-
-plot(x, f_exakt, ...
-    'LineWidth', 1.5, 'Color', 'k', ...
-    'DisplayName', 'Exakte Funktion f(x)')
-
-plot(x, df_exakt, ...
-    '--','LineWidth', 1.5, 'Color', 'k', ...
-    'DisplayName', 'Exakte Ableitung df(x)/dx')
-
-plot(x, f, ...
-    'LineWidth', 1, 'Color', "#0072BD", ...
-    'DisplayName', 'Polynom P80')
-
-scatter(0.6, LagrangePolynom(0.6,n,x_node,f_node), ...
-    'filled', 'MarkerFaceColor', "#0072BD", ...
-    'DisplayName', 'Polynom P80 an der Stelle x = 0.6')
-
-plot(x, df, ...
-    'LineWidth', 1, 'Color', "#D95319", ...
-    'DisplayName', 'erste Ableitung Polynom P80')        
-
-scatter(0.6, LagrangeDerivPolynom(0.6,n,x_node,f_node), ...
-    'filled', 'MarkerFaceColor', "#D95319", ...
-    'DisplayName', 'erste Ableitung Polynom P80 an der Stelle x = 0.6') 
-
-scatter(x_node,f_node, ...
-    'filled','k', ...
-    'DisplayName', 'Stützstellen')
-
-title('Lagrangesches Interpolationspolynom vom Grad 80')
-xlabel('x')
-ylabel('f(x)')
-ylim([-0.05 0.35])
-legend('Location','southeast')
-grid on 
+f_L80      = f_L(3);
+f_L80_diff = f_L_diff(3);
 
