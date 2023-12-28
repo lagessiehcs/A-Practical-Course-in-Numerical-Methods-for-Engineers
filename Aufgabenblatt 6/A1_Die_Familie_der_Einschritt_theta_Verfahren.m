@@ -46,10 +46,10 @@ for k = 1:length(dt)
     
     figure(k)
     hold on
-    plot(t,phi_vorwaerts,'DisplayName','Vorwärts-Euler-Verfahren')
-    plot(t,phi_rueckwaerts,'DisplayName','Rückwärts-Euler-Verfahren')
-    plot(t,phi_trapez,'DisplayName','Trapezregel')
-    plot(0:0.01:2,phi(0:0.01:2),'k--','DisplayName','Exakt'); % exakte Lösung zum Vergleichen
+    plot(t,phi_vorwaerts,'LineWidth',1,'DisplayName','Vorwärts-Euler-Verfahren')
+    plot(t,phi_rueckwaerts,'LineWidth',1,'DisplayName','Rückwärts-Euler-Verfahren')
+    plot(t,phi_trapez,'LineWidth',1,'DisplayName','Trapezregel')
+    plot(0:0.01:2,phi(0:0.01:2),'k--','LineWidth',1,'DisplayName','Exakt'); % exakte Lösung zum Vergleichen
     legend
     xlabel('t')
     ylabel('\phi(t)')
