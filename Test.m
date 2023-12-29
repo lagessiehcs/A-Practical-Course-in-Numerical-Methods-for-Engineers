@@ -18,9 +18,11 @@
 % 013                                               5
 % 014                                               5
 % 015                                               5
-% 010                                               5
-
-
+% 016                                               5
+% 017                                               5
+% 018                                               5
+% 019                                               6
+% 020                                               6
 % _________________________________________________________________________
 % =========================================================================
 
@@ -29,7 +31,7 @@
 
 clear 
 clc
-addpath("Aufgabenblatt 1\","Aufgabenblatt 3\","Aufgabenblatt 5\")
+addpath("Aufgabenblatt 1\","Aufgabenblatt 3\","Aufgabenblatt 5\","Aufgabenblatt 6\")
 Test_text
 disp('=========================================== Modultest ===========================================')
 
@@ -47,11 +49,11 @@ result        = {1; 120; [0.25;0.25;0.25;0.25]
                 [1.0;1.0;1.0;1.0] 
                 [0.308642;0.493827;0.308642;0.493827;0.790123;0.493827;0.308642;0.493827;0.308642]
                 [3.577; 1.37826775]; [1.0, 0; 0.10575, 0.89425]; 0.89425
-                [1.0,0;-0.1182555,1.1182555]}; % Zum Vergleich mit test_function
+                [1.0,0;-0.1182555,1.1182555]; 0.96; 2.85}; % Zum Vergleich mit test_function
 
 size_result   = {[1 1]; [1 1]; [4 1]; [4 1]; [4 2]; [4 2]; [1 3]; [1 3]
                  [1 2]; [4 2]; [9 2]; [1 1]; [4 1]; [9 1]; [2 1]; [2 2]
-                 [1 1]; [2 2]}; % Zum Vergleich mit test_function size
+                 [1 1]; [2 2]; [1 1]; [1 1];}; % Zum Vergleich mit test_function size
 
 error         = false;
 
@@ -96,6 +98,10 @@ for test = 1:length(size_result)
                 [~,test_function,~] = getJacobian([2,1;4,1;4,3;2,2],0.577,-0.577);
             case 18
                 [~,~,test_function] = getJacobian([2,1;4,1;4,3;2,2],0.577,-0.577); tol  = 1e-7;
+            case 19
+                [test_function,~] = OST(0.5,0.2,1.1,[1.4,1.5],[1.7, 1.8],2.0);
+            case 20
+                [~,test_function] = OST(0.5,0.2,1.1,[1.4,1.5],[1.7, 1.8],2.0);
         end
     catch
         fprintf(2,test_error{test})
@@ -104,7 +110,7 @@ for test = 1:length(size_result)
 
     if ~error
         if ~isequal(size(test_function), size_result{test})
-            fprintf(2,test_wrong_format{test},size(test_function))
+            fprintf(2,test_wrong_size{test},size(test_function))
         else
 
             if any(test == [7 8 9 10]) % (Reihenfolge der Gaußpunkte ist beliebig)
