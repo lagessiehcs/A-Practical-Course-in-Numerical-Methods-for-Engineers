@@ -12,6 +12,10 @@ function [LHS,RHS] = OST(theta,timestep,M,B,C,sol)
 %           ↑                                     ↑
 %         [LHS]      * φn+1 =                   [RHS]
 % 
+% θ = 0   ... das Vorwärts-Euler-Verfahren  (bedingt stabil)
+% θ = 1   ... das Rückwärts-Euler-Verfahren (A-statil)
+% θ = 1/2 ... die Trapezregel               (A-stabil)
+%
 % 
 % timestep ... dt
 % M        ... [M], 
