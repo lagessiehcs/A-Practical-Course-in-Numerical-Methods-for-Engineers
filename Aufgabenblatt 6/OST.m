@@ -6,11 +6,11 @@ function [LHS,RHS] = OST(theta,timestep,M,B,C,sol)
 %
 % One-Step-Theta-Method
 % Einschritt-Theta-Verfahren: 
-% φn+1 = φn + θ*∆t*f(tn+1, φn+1) + (1-θ)*∆t*f(tn, φn)
+% φ{n+1} = φ{n} + θ*∆t*f(t{n+1}, φ{n+1}) + (1-θ)*∆t*f(t{n}, φ{n})
 % 
-% -> [M-θ*∆t*Bn+1/M] * φn+1 = [M+(1-θ)*∆t*Bn]*φn + ∆t*[θ*Cn+1+(1-θ)*Cn]
-%           ↑                                     ↑
-%         [LHS]      * φn+1 =                   [RHS]
+% -> [M-θ*∆t*B{n+1}/M] * φ{n+1} = [M+(1-θ)*∆t*B{n}]*φ{n} + ∆t*[θ*C{n+1}+(1-θ)*Cn]
+%           ↑                                         ↑
+%         [LHS]        * φ{n+1} =                   [RHS]
 % 
 % θ = 0   ... das Vorwärts-Euler-Verfahren  (bedingt stabil)
 % θ = 1   ... das Rückwärts-Euler-Verfahren (A-statil)
@@ -19,12 +19,12 @@ function [LHS,RHS] = OST(theta,timestep,M,B,C,sol)
 % 
 % timestep ... dt
 % M        ... [M], 
-% B        ... [B(tn+1), B(tn)]
-% C        ... [C(tn+1), C(tn)]
-% sol      ... [φ(tn)]
+% B        ... [B(t{n+1}), B(t{n})]
+% C        ... [C(t{n+1}), C(t{n})]
+% sol      ... [φ(t{n})]
 %
 % Rückgabewert: Zeilenvektor mit LHS und RHS:
-% LHS * φ(tn+1) = RHS
+% LHS * φ(t{n+1}) = RHS
 % =========================================================================
 
 LHS = M - theta*timestep*B(1);
