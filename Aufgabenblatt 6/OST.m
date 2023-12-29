@@ -2,11 +2,9 @@ function [LHS,RHS] = OST(theta,timestep,M,B,C,sol)
 % =========================================================================
 % Fkt IX
 %
-% One-Step-Theta-Method
-% Einschritt-Theta-Verfahren
-%
 % Allgemeine DGL: M*dφ(t)/dt = B(t)*φ(t) + C(t)
 %
+% One-Step-Theta-Method
 % Einschritt-Theta-Verfahren: 
 % φn+1 = φn + θ*∆t*f(tn+1, φn+1) + (1-θ)*∆t*f(tn, φn)
 % 
