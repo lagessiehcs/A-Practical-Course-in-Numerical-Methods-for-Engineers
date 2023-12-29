@@ -24,6 +24,8 @@ test_passed       = {'001:     Testing function: <Fkt 0    : falcutaet(0)>      
                      '022:     Testing function: <Fkt X    : AB2(0.2,[1.1],[1.5,1.6],[1.8,1.9],[2.0,2.1]), RHS>         ... passed (= 3.114, tol = 1e-12)!\n'
                      '023:     Testing function: <Fkt XI   : AM3(0.2,[1.1],[1.4,1.5,1.6],[1.7,1.8,1.9],[2.0,2.1]), LHS> ... passed (= 0.983333333333333, tol = 1e-12)!\n'
                      '024:     Testing function: <Fkt XI   : AM3(0.2,[1.1],[1.4,1.5,1.6],[1.7,1.8,1.9],[2.0,2.1]), RHS> ... passed (= 2.894, tol = 1e-12)!\n'
+                     '025:     Testing function: <Fkt XII  : BDF2(0.2,[1.1],[1.4],[1.7],[2.0,2.1]), LHS>                ... passed (= 1.37, tol = 1e-12)!\n'
+                     '026:     Testing function: <Fkt XII  : BDF2(0.2,[1.1],[1.4],[1.7],[2.0,2.1]), RHS>                ... passed (= 3.585, tol = 1e-12)!\n'
                      };
 
 test_failed       = {'001: !!! Testing function: <Fkt 0    : falcutaet(0)>                                              ... failed (1 ~= %f, diff = %f)\n'
@@ -52,6 +54,8 @@ test_failed       = {'001: !!! Testing function: <Fkt 0    : falcutaet(0)>      
                      '022: !!! Testing function: <Fkt X    : AB2(0.2,[1.1],[1.5,1.6],[1.8,1.9],[2.0,2.1]), RHS>         ... failed 3.114 ~= %f, diff = %f, tol = 1e-12)!\n'
                      '023: !!! Testing function: <Fkt XI   : AM3(0.2,[1.1],[1.4,1.5,1.6],[1.7,1.8,1.9],[2.0,2.1]), LHS> ... failed 0.983333333333333 ~= %f, diff = %f, tol = 1e-12)!\n'
                      '024: !!! Testing function: <Fkt XI   : AM3(0.2,[1.1],[1.4,1.5,1.6],[1.7,1.8,1.9],[2.0,2.1]), RHS> ... failed 2.894 ~= %f, diff = %f, tol = 1e-12)!\n'
+                     '025: !!! Testing function: <Fkt XII  : BDF2(0.2,[1.1],[1.4],[1.7],[2.0,2.1]), LHS>                ... failed 1.37 ~= %f, diff = %f, tol = 1e-12)!\n'
+                     '026: !!! Testing function: <Fkt XII  : BDF2(0.2,[1.1],[1.4],[1.7],[2.0,2.1]), RHS>                ... failed 3.585 ~= %f, diff = %f, tol = 1e-12)!\n'
                      };
 
 test_wrong_size =   {'001: !!! Testing function: <Fkt 0    : falcutaet(0)>                                              ... failed (Dimension: (1x1) ~= (%dx%d))!\n'
@@ -78,6 +82,8 @@ test_wrong_size =   {'001: !!! Testing function: <Fkt 0    : falcutaet(0)>      
                      '022: !!! Testing function: <Fkt X    : AB2(0.2,[1.1],[1.5,1.6],[1.8,1.9],[2.0,2.1]), RHS>         ... failed (Dimension: (1x1) ~= (%dx%d))!\n'
                      '023: !!! Testing function: <Fkt XI   : AM3(0.2,[1.1],[1.4,1.5,1.6],[1.7,1.8,1.9],[2.0,2.1]), LHS> ... failed (Dimension: (1x1) ~= (%dx%d))!\n'
                      '024: !!! Testing function: <Fkt XI   : AM3(0.2,[1.1],[1.4,1.5,1.6],[1.7,1.8,1.9],[2.0,2.1]), RHS> ... failed (Dimension: (1x1) ~= (%dx%d))!\n'
+                     '025: !!! Testing function: <Fkt XII  : BDF2(0.2,[1.1],[1.4],[1.7],[2.0,2.1]), LHS>                ... failed (Dimension: (1x1) ~= (%dx%d))!\n'
+                     '026: !!! Testing function: <Fkt XII  : BDF2(0.2,[1.1],[1.4],[1.7],[2.0,2.1]), RHS>                ... failed (Dimension: (1x1) ~= (%dx%d))!\n'
                      };
 
 test_error        = {'001: !!! Testing function: <Fkt 0    : falcutaet(0)>                                              ... failed (error occured within function)!\n'
@@ -104,4 +110,6 @@ test_error        = {'001: !!! Testing function: <Fkt 0    : falcutaet(0)>      
                      '022: !!! Testing function: <Fkt X    : AB2(0.2,[1.1],[1.5,1.6],[1.8,1.9],[2.0,2.1]), RHS>         ... failed (error occured within function)!\n'
                      '023: !!! Testing function: <Fkt XI   : AM3(0.2,[1.1],[1.4,1.5,1.6],[1.7,1.8,1.9],[2.0,2.1]), LHS> ... failed (error occured within function)!\n'
                      '024: !!! Testing function: <Fkt XI   : AM3(0.2,[1.1],[1.4,1.5,1.6],[1.7,1.8,1.9],[2.0,2.1]), RHS> ... failed (error occured within function)!\n'
+                     '023: !!! Testing function: <Fkt XII  : BDF2(0.2,[1.1],[1.4],[1.7],[2.0,2.1]), LHS>                ... failed (error occured within function)!\n'
+                     '024: !!! Testing function: <Fkt XII  : BDF2(0.2,[1.1],[1.4],[1.7],[2.0,2.1]), RHS>                ... failed (error occured within function)!\n'
                      };
