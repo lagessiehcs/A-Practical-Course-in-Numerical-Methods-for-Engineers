@@ -20,6 +20,8 @@ test_passed       = {'001:     Testing function: <Fkt 0    : falcutaet(0)>      
                      '018:     Testing function: <Fkt VIII : getJacobian([2,1;4,1;4,3;2,2],0.577,-0.577), invJ>  ... passed (= [1.0,0;-0.1182555,1.1182555]], tol = 1e-7)!\n'
                      '019:     Testing function: <Fkt IX   : OST(0.5,0.2,[1.1],[1.4,1.5],[1.7, 1.8],[2.0]), LHS> ... passed (= 0.96, tol = 1e-12)!\n'
                      '020:     Testing function: <Fkt IX   : OST(0.5,0.2,[1.1],[1.4,1.5],[1.7, 1.8],[2.0]), RHS> ... passed (= 2.85, tol = 1e-12)!\n'
+                     '021:     Testing function: <Fkt X    : AB2(0.2,[1.1],[1.5,1.6],[1.8,1.9],[2.0,2.1]), LHS>  ... passed (= 1.1, tol = 1e-12)!\n'
+                     '022:     Testing function: <Fkt X    : AB2(0.2,[1.1],[1.5,1.6],[1.8,1.9],[2.0,2.1]), RHS>  ... passed (= 3.114, tol = 1e-12)!\n'
                      };
 
 test_failed       = {'001: !!! Testing function: <Fkt 0    : falcutaet(0)>                                       ... failed (1 ~= %f, diff = %f)\n'
@@ -44,6 +46,8 @@ test_failed       = {'001: !!! Testing function: <Fkt 0    : falcutaet(0)>      
                      '018: !!! Testing function: <Fkt VIII : getJacobian([2,1;4,1;4,3;2,2],0.577,-0.577), invJ>  ... failed ([1.0,0;-0.1182555,1.1182555] ~= [%f,%f;%f,%f], diff = [%f,%f;%f,%f], tol = 1e-7)!\n'
                      '019: !!! Testing function: <Fkt IX   : OST(0.5,0.2,[1.1],[1.4,1.5],[1.7, 1.8],[2.0]), LHS> ... failed 0.96 ~= %f, diff = %f, tol = 1e-12)!\n'
                      '020: !!! Testing function: <Fkt IX   : OST(0.5,0.2,[1.1],[1.4,1.5],[1.7, 1.8],[2.0]), RHS> ... failed 2.85 ~= %f, diff = %f, tol = 1e-12)!\n'
+                     '021: !!! Testing function: <Fkt X    : AB2(0.2,[1.1],[1.5,1.6],[1.8,1.9],[2.0,2.1]), LHS>  ... failed 1.1 ~= %f, diff = %f, tol = 1e-12)!\n'
+                     '022: !!! Testing function: <Fkt X    : AB2(0.2,[1.1],[1.5,1.6],[1.8,1.9],[2.0,2.1]), RHS>  ... failed 3.114 ~= %f, diff = %f, tol = 1e-12)!\n'
                      };
 
 test_wrong_size =   {'001: !!! Testing function: <Fkt 0    : falcutaet(0)>                                       ... failed (Dimension: (1x1) ~= (%dx%d))!\n'
@@ -65,7 +69,9 @@ test_wrong_size =   {'001: !!! Testing function: <Fkt 0    : falcutaet(0)>      
                      '017: !!! Testing function: <Fkt VIII : getJacobian([2,1;4,1;4,3;2,2],0.577,-0.577), detJ>  ... failed (Dimension: (1x1) ~= (%dx%d))!\n'
                      '018: !!! Testing function: <Fkt VIII : getJacobian([2,1;4,1;4,3;2,2],0.577,-0.577), invJ>  ... failed (Dimension: (2x2) ~= (%dx%d))!\n'
                      '019: !!! Testing function: <Fkt IX   : OST(0.5,0.2,[1.1],[1.4,1.5],[1.7, 1.8],[2.0]), LHS> ... failed (Dimension: (1x1) ~= (%dx%d))!\n'
-                     '020: !!! Testing function: <Fkt IX   : OST(0.5,0.2,[1.1],[1.4,1.5],[1.7, 1.8],[2.0]), RHS> ... failed (Dimension: (1x1) ~= (%dx%d))!\n'             
+                     '020: !!! Testing function: <Fkt IX   : OST(0.5,0.2,[1.1],[1.4,1.5],[1.7, 1.8],[2.0]), RHS> ... failed (Dimension: (1x1) ~= (%dx%d))!\n'
+                     '021: !!! Testing function: <Fkt X    : AB2(0.2,[1.1],[1.5,1.6],[1.8,1.9],[2.0,2.1]), LHS>  ... failed (Dimension: (1x1) ~= (%dx%d))!\n'
+                     '022: !!! Testing function: <Fkt X    : AB2(0.2,[1.1],[1.5,1.6],[1.8,1.9],[2.0,2.1]), RHS>  ... failed (Dimension: (1x1) ~= (%dx%d))!\n'
                      };
 
 test_error        = {'001: !!! Testing function: <Fkt 0    : falcutaet(0)>                                       ... failed (error occured within function)!\n'
@@ -88,4 +94,6 @@ test_error        = {'001: !!! Testing function: <Fkt 0    : falcutaet(0)>      
                      '018: !!! Testing function: <Fkt VIII : getJacobian([2,1;4,1;4,3;2,2],0.577,-0.577), invJ>  ... failed (error occured within function)!\n'
                      '019: !!! Testing function: <Fkt IX   : OST(0.5,0.2,[1.1],[1.4,1.5],[1.7, 1.8],[2.0]), LHS> ... failed (error occured within function)!\n'
                      '020: !!! Testing function: <Fkt IX   : OST(0.5,0.2,[1.1],[1.4,1.5],[1.7, 1.8],[2.0]), LHS> ... failed (error occured within function)!\n'                     
+                     '021: !!! Testing function: <Fkt X    : AB2(0.2,[1.1],[1.5,1.6],[1.8,1.9],[2.0,2.1]), LHS>  ... failed (error occured within function)!\n'
+                     '022: !!! Testing function: <Fkt X    : AB2(0.2,[1.1],[1.5,1.6],[1.8,1.9],[2.0,2.1]), LHS>  ... failed (error occured within function)!\n'
                      };
