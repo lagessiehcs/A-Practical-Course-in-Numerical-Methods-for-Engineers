@@ -37,7 +37,7 @@
 
 clear 
 clc
-addpath("Aufgabenblatt 1\","Aufgabenblatt 3\","Aufgabenblatt 5\","Aufgabenblatt 6\")
+% addpath("Aufgabenblatt 1\","Aufgabenblatt 3\","Aufgabenblatt 5\","Aufgabenblatt 6\")
 Test_text
 disp('=========================================== Modultest ===========================================')
 
