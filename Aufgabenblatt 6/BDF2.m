@@ -4,7 +4,7 @@ function [LHS,RHS] = BDF2(timestep,M,B,C,sol)
 %
 % Allgemeine DGL: M*dφ(t)/dt = B(t)*φ(t) + C(t)
 %
-% Adams-Moulton-Verfahren:
+% BDF2-Verfahren:
 % 3/2*φ{n+1} = 2φ{n} − 1/2*φ{n−1} + ∆t*f(t{n+1}, φ{n+1})
 % (A-stabil)
 %
