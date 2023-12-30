@@ -8,11 +8,11 @@ function [J,detJ,invJ] = getJacobian(nodes, xi, eta)
 % =======================================================================
 
 J = zeros(2,2);
-N = linquadderivref(xi,eta); % Fkt II
+N_diff = linquadderivref(xi,eta); % Fkt II
 
 for i = 1:4
-    J(:,1) = J(:,1) + N(i,1) * nodes(i,:)';
-    J(:,2) = J(:,2) + N(i,2) * nodes(i,:)';
+    J(:,1) = J(:,1) + N_diff(i,1) * nodes(i,:)';
+    J(:,2) = J(:,2) + N_diff(i,2) * nodes(i,:)';
 end
 
 detJ = det(J);
