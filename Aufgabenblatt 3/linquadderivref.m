@@ -4,20 +4,20 @@ function deriv = linquadderivref(xi,eta)
 % ======================================
 
 
-dN1_dxi  = -1/4 * (1-eta);
-dN1_deta = -1/4 * (1-xi);
+N1_diff_dxi  = -1/4 * (1-eta);
+N1_diff_deta = -1/4 * (1-xi);
 
-dN2_dxi  = 1/4 * (1-eta);
-dN2_deta = -1/4 * (1+xi);
+N2_diff_dxi  = 1/4 * (1-eta);
+N2_diff_deta = -1/4 * (1+xi);
 
-dN3_dxi  = 1/4 * (1+eta);
-dN3_deta = 1/4 * (1+xi);
+N3_diff_dxi  = 1/4 * (1+eta);
+N3_diff_deta = 1/4 * (1+xi);
 
-dN4_dxi  = -1/4 * (1+eta);
-dN4_deta = 1/4 * (1-xi);
+N4_diff_dxi  = -1/4 * (1+eta);
+N4_diff_deta = 1/4 * (1-xi);
 
-deriv = [dN1_dxi dN1_deta
-         dN2_dxi dN2_deta
-         dN3_dxi dN3_deta
-         dN4_dxi dN4_deta];
+deriv = [N1_diff_dxi N1_diff_deta
+         N2_diff_dxi N2_diff_deta
+         N3_diff_dxi N3_diff_deta
+         N4_diff_dxi N4_diff_deta];
 end
