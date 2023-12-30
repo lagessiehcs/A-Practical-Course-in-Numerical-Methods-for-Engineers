@@ -1,6 +1,6 @@
 % ===========================================================
 % Allgemeine Form:
-% φn+1 = φn + θ ∆t f (tn+1, φn+1) + (1 − θ) ∆t f (tn, φn) (1)
+% φ{n+1} = φ{n} + θ ∆t f (t{n+1}, φ{n+1}) + (1 − θ) ∆t f (t{n}, φ{n}) (1)
 %
 % θ = 0:   das Vorwärts-Euler-Verfahren
 % θ = 1:   das Rückwärts-Euler-Verfahren
@@ -30,11 +30,11 @@ for k = 1:length(dt)
         phi_vorwaerts(i+1) = phi_vorwaerts(i) + ...
                              dt(k) * (t(i)^2*exp(-5*t(i))-6*phi_vorwaerts(i));
     
-        % Gl. (1) mit θ = 1 und lösen nach φn+1:
+        % Gl. (1) mit θ = 1 und lösen nach φ{n+1}:
         phi_rueckwaerts(i+1) = (phi_rueckwaerts(i) + ...
                                dt(k) * t(i+1)^2*exp(-5*t(i+1)))/(1+6*dt(k));
         
-        % Gl. (1) mit θ = 1/2 und lösen nach φn+1:
+        % Gl. (1) mit θ = 1/2 und lösen nach φ{n+1}:
         phi_trapez(i+1) = (...
                            phi_trapez(i) + ...
                            dt(k)/2 * ( t(i+1)^2 * exp(-5*t(i+1)) +   ...
