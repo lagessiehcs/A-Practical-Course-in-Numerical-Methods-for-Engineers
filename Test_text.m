@@ -31,6 +31,10 @@ test_passed       = {'001:     Testing function: <Fkt 0    : falcutaet(0)>      
                      ''
                      '030:     Testing function: <Fkt XVII : evaluate_stat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3)), elemat> ... passed (= [40 -28 -20 8; -28 40 8 -20; -20 8 40 -28; 8 -20 -28 40], tol = 1e-12)!\n'
                      '031:     Testing function: <Fkt XVII : evaluate_stat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3)), elevec> ... passed (= [0;0;0;0], tol = 1e-12)!\n'
+                    ['032:     Testing function: <Fkt XVIII: assemble([1,2,3,4;5,6,7,8;9,10,11,12;13,14,15,16],\n' ...
+                     '                                       [17;18;19;20],eye(5,5),ones(5,1),[5,3,1,2]), sysmat>            ... passed (= [12,12,10,0,9;15,17,14,0,13;7,8,7,0,5;0,0,0,1,0;3,4,2,0,2], tol = 1e-12)!\n']
+                    ['033:     Testing function: <Fkt XVIII: assemble([1,2,3,4;5,6,7,8;9,10,11,12;13,14,15,16],\n' ...
+                     '                                       [17;18;19;20],eye(5,5),ones(5,1),[5,3,1,2]), rhs>               ... passed (= [20;21;19;1;18], tol = 1e-12)!\n']
                      };
 
 test_failed       = {'001: !!! Testing function: <Fkt 0    : falcutaet(0)>                                                   ... failed (1 ~= %f, diff = %f)\n'
@@ -66,6 +70,10 @@ test_failed       = {'001: !!! Testing function: <Fkt 0    : falcutaet(0)>      
                      ''
                      '030: !!! Testing function: <Fkt XVII : evaluate_stat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3)), elemat> ... failed ([40 -28 -20 8; -28 40 8 -20; -20 8 40 -28; 8 -20 -28 40] ~= [%f %f %f %f; %f %f %f %f; %f %f %f %f; %f %f %f %f], diff = [%f %f %f %f; %f %f %f %f; %f %f %f %f; %f %f %f %f], tol = 1e-12)!\n'
                      '031: !!! Testing function: <Fkt XVII : evaluate_stat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3)), elevec> ... failed ([0;0;0;0] ~= [%f;%f;%f;%f], diff = [%f;%f;%f;%f], tol = 1e-12)!\n'
+                    ['032:     Testing function: <Fkt XVIII: assemble([1,2,3,4;5,6,7,8;9,10,11,12;13,14,15,16],\n' ...
+                     '                                       [17;18;19;20],eye(5,5),ones(5,1),[5,3,1,2]), sysmat>            ... failed ([12,12,10,0,9;15,17,14,0,13;7,8,7,0,5;0,0,0,1,0;3,4,2,0,2] ~= [%f,%f,%f,%f,%f;%f,%f,%f,%f,%f;%f,%f,%f,%f,%f;%f,%f,%f,%f,%f;%f,%f,%f,%f,%f], diff = [%f,%f,%f,%f,%f;%f,%f,%f,%f,%f;%f,%f,%f,%f,%f;%f,%f,%f,%f,%f;%f,%f,%f,%f,%f], tol = 1e-12)!\n']
+                    ['033:     Testing function: <Fkt XVIII: assemble([1,2,3,4;5,6,7,8;9,10,11,12;13,14,15,16],\n' ...
+                     '                                       [17;18;19;20],eye(5,5),ones(5,1),[5,3,1,2]), rhs>               ... failed ([20;21;19;1;18] ~= [%f;%f;%f;%f;%f], diff = [%f;%f;%f;%f;%f], tol = 1e-12)!\n']
                      };
 
 test_wrong_size =   {'001: !!! Testing function: <Fkt 0    : falcutaet(0)>                                                   ... failed (Dimension: (1x1) ~= (%dx%d))!\n'
@@ -99,6 +107,10 @@ test_wrong_size =   {'001: !!! Testing function: <Fkt 0    : falcutaet(0)>      
                      ''
                      '030: !!! Testing function: <Fkt XVII : evaluate_stat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3)), elemat> ... failed (Dimension: (4x4) ~= (%dx%d))!\n'
                      '031: !!! Testing function: <Fkt XVII : evaluate_stat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3)), elevec> ... failed (Dimension: (4x1) ~= (%dx%d))!\n'
+                    ['032:     Testing function: <Fkt XVIII: assemble([1,2,3,4;5,6,7,8;9,10,11,12;13,14,15,16],\n' ...
+                     '                                       [17;18;19;20],eye(5,5),ones(5,1),[5,3,1,2]), sysmat>            ... failed (Dimension: (5x5) ~= (%dx%d))!\n']
+                    ['033:     Testing function: <Fkt XVIII: assemble([1,2,3,4;5,6,7,8;9,10,11,12;13,14,15,16],\n' ...
+                     '                                       [17;18;19;20],eye(5,5),ones(5,1),[5,3,1,2]), rhs>               ... failed (Dimension: (5x1) ~= (%dx%d))!\n']
                      };
 
 test_error        = {'001: !!! Testing function: <Fkt 0    : falcutaet(0)>                                                   ... failed (error occured within function)!\n'
@@ -131,5 +143,8 @@ test_error        = {'001: !!! Testing function: <Fkt 0    : falcutaet(0)>      
                      ''
                      ''
                      '030: !!! Testing function: <Fkt XVII : evaluate_stat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3)), elemat> ... failed (error occured within function)!\n'
-                     '031: !!! Testing function: <Fkt XVII : evaluate_stat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3)), elevec> ... failed (error occured within function)!\n'
-                     };
+                     '031: !!! Testing function: <Fkt XVII : evaluate_stat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3)), elevec> ... failed (error occured within function)!\n'                     
+                    ['032:     Testing function: <Fkt XVIII: assemble([1,2,3,4;5,6,7,8;9,10,11,12;13,14,15,16],\n' ...
+                     '                                       [17;18;19;20],eye(5,5),ones(5,1),[5,3,1,2]), sysmat>            ... failed (error occured within function)!\n']
+                    ['033:     Testing function: <Fkt XVIII: assemble([1,2,3,4;5,6,7,8;9,10,11,12;13,14,15,16],\n' ...
+                     '                                       [17;18;19;20],eye(5,5),ones(5,1),[5,3,1,2]), rhs>               ... failed (error occured within function)!\n']};
