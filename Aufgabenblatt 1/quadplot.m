@@ -1,8 +1,12 @@
 function quadplot(nodes,elements,sol)
-
-% nodes ... [Knotenkoordinaten (Knotenid, (x,y)-Richtung)],
+% ============================================
+% Fkt. 0
+%
+% nodes    ... [Knotenkoordinaten (Knotenid, (x,y)-Richtung)],
 % elements ... [Knotenid (Elementid, lokale Knotenid)],
-% sol ...  [Lösungsvektor (Knotenid)]
+% sol      ...  [Lösungsvektor (Knotenid)]
+% ============================================
+
 
 T = zeros(size(elements,1)*2,3);
 
