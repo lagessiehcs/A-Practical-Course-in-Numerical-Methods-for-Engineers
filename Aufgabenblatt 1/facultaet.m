@@ -1,17 +1,17 @@
-function f = facultaet(n)
+function nfac = facultaet(n)
 % ============================================
-% Fkt. 0
+% Fkt. A
 % ============================================
 if n == 0 || n == 1
-    f = 1;
+    nfac = 1;
 elseif n ~= round(n)
     disp('n muss eine ganzzahlige Zahl sein')
-    f = nan;
+    nfac = nan;
 elseif n < 0
     disp('n muss eine positive Zahl sein')
-    f = nan;
+    nfac = nan;
 else
-    f = n*factorial(n-1);
+    nfac = n*factorial(n-1);
 end
 
 end
