@@ -16,7 +16,9 @@ for i = 1:length(ele) % Schleife zum Aufrufen aller globale Zeilenindex
     for j = 1:length(ele) % Schleife zum Aufrufen aller globale Spaltenindex
         % j: Spalten der Elementmatrix A(e)
         globaleSpaltenindex = ele(j);
-        sysmat(globaleZeilenindex,globaleSpaltenindex) = sysmat(globaleZeilenindex,globaleSpaltenindex) + elemat(i,j);
+        
+        sysmat(globaleZeilenindex,globaleSpaltenindex) = ...
+        sysmat(globaleZeilenindex,globaleSpaltenindex) + elemat(i,j);
         
     end
 end
