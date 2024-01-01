@@ -4,7 +4,7 @@ function quadplot(nodes,elements,sol)
 %
 % nodes    ... [Knotenkoordinaten (Knotenid, (x,y)-Richtung)],
 % elements ... [Knotenid (Elementid, lokale Knotenid)],
-% sol      ...  [Lösungsvektor (Knotenid)]
+% sol      ... [Lösungsvektor (Knotenid)]
 % ============================================
 
 
