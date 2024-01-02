@@ -10,16 +10,15 @@ function [elemat,elevec] = evaluate_stat(elenodes,gpx,gpw)
 % =========================================================================
 lamda = 48;
 
-grad_N = zeros(4,2);
-elemat = zeros(size(grad_N,1));
+elemat = zeros(4);
 
 for k = 1:size(gpx,1)  % Schleife über alle Gaußpunkte im Element
     xi  = gpx(k,1);
     eta = gpx(k,2);
     [~,detJ,invJ] = getJacobian(elenodes, xi, eta);
     grad_N = linquadderivref(xi,eta)*invJ;
-    for i = 1:size(grad_N,1) % Schleife über alle Zeilen der Elementmatrix
-        for j = 1:size(grad_N,1) % Schleife über alle Spalten der Elementmatrix
+    for i = 1:size(elemat,1) % Schleife über alle Zeilen der Elementmatrix
+        for j = 1:size(elemat,2) % Schleife über alle Spalten der Elementmatrix
             elemat(i,j) = elemat(i,j) + lamda*grad_N(i,:)*grad_N(j,:)'*detJ*gpw(k);
         end
     end
