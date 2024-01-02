@@ -1,6 +1,7 @@
 close all
 clear
 clc
+addpath("..\Aufgabenblatt 1\","..\Aufgabenblatt 3\","..\Aufgabenblatt 5\")
 
 %% Initialisierung
 
