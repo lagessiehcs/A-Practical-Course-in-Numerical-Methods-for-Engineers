@@ -18,7 +18,7 @@ function [LHS,RHS] = AM3(timestep,M,B,C,sol)
 % M        ... [M], 
 % B        ... [B(t{n+1}), B(t{n}), B(t{n-1})]
 % C        ... [C(t{n+1}), C(t{n}), C(t{n-1})]
-% sol      ... [φ(t{n+1}), φ(t{n}), φ(t{n-1})]
+% sol      ... [φ(t{n}), φ(t{n-1})]
 %
 % Rückgabewert: Zeilenvektor mit LHS und RHS:
 % LHS * φ(t{n+1}) = RHS
