@@ -1,7 +1,7 @@
 % Text used for tests
 
-test_passed       = {'001:     Function: <Fkt 0    : falcutaet(0)> .......................................... passed (= 1, tol = 1e-12)!\n'
-                     '002:     Function: <Fkt 0    : falcutaet(5)> .......................................... passed (= 120, tol = 1e-12)!\n'
+test_passed       = {'001:     Function: <Fkt A    : falcutaet(0)> .......................................... passed (= 1, tol = 1e-12)!\n'
+                     '002:     Function: <Fkt A    : falcutaet(5)> .......................................... passed (= 120, tol = 1e-12)!\n'
                      '003:     Function: <Fkt I    : linquadref(0.0,0.0)> ................................... passed (= [0.25;0.25;0.25;0.25], tol = 1e-12)!\n'
                      '004:     Function: <Fkt I    : linquadref(0.577,-0.577)> .............................. passed (= [0.16676775;0.62173225;0.16676775;0.04473225], tol = 1e-12)!\n'
                      '005:     Function: <Fkt II   : linquadderivref(0.0,0.0)> .............................. passed (= [-0.25,-0.25; 0.25,-0.25;0.25,0.25;-0.25,0.25], tol = 1e-12)!\n'
@@ -45,8 +45,8 @@ test_passed       = {'001:     Function: <Fkt 0    : falcutaet(0)> .............
                      '                               [20;21;19;1;18],[2,−7;5,−2]), rhs> ..................... passed (= [20;-7;19;1;-2], tol = 1e-12)!\n']
                      };
 
-test_failed       = {'001: !!! Function: <Fkt 0    : falcutaet(0)> .......................................... failed (1 ~= %f, diff = %f)\n'
-                     '002: !!! Function: <Fkt 0    : falcutaet(5)> .......................................... failed (1 ~= %f, diff = %f)\n'
+test_failed       = {'001: !!! Function: <Fkt A    : falcutaet(0)> .......................................... failed (1 ~= %f, diff = %f)\n'
+                     '002: !!! Function: <Fkt A    : falcutaet(5)> .......................................... failed (1 ~= %f, diff = %f)\n'
                      '003: !!! Function: <Fkt I    : linquadref(0.0,0.0)> ................................... failed ([0.25;0.25;0.25;0.25] ~= [%f;%f;%f;%f], diff = [%f;%f;%f;%f], tol = 1e-12)!\n'
                      '004: !!! Function: <Fkt I    : linquadref(0.577,-0.577)> .............................. failed ([0.16676775;0.62173225;0.16676775;0.04473225] ~= [%f;%f;%f;%f], diff = [%f;%f;%f;%f], tol = 1e-12)!\n'
                      '005: !!! Function: <Fkt II   : linquadderivref(0.0,0.0)> .............................. failed ([-0.25,-0.25;0.25,-0.25;0.25,0.25;-0.25,0.25] ~= [%f,%f;%f,%f;%f,%f;%f,%f], diff = [%f,%f;%f,%f;%f,%f;%f,%f], tol = 1e-12)!\n'
@@ -92,8 +92,8 @@ test_failed       = {'001: !!! Function: <Fkt 0    : falcutaet(0)> .............
                      '                               [20;21;19;1;18],[2,−7;5,−2]), rhs> ..................... failed ([20;-7;19;1;-2] ~= [%f;%f;%f;%f;%f], diff = [%f;%f;%f;%f;%f], tol = 1e-12)!\n'] 
                      };
 
-test_wrong_size =   {'001: !!! Function: <Fkt 0    : falcutaet(0)> .......................................... failed (Dimension: (1x1) ~= (%dx%d))!\n'
-                     '002: !!! Function: <Fkt 0    : falcutaet(5)> .......................................... failed (Dimension: (1x1) ~= (%dx%d))!\n'
+test_wrong_size =   {'001: !!! Function: <Fkt A    : falcutaet(0)> .......................................... failed (Dimension: (1x1) ~= (%dx%d))!\n'
+                     '002: !!! Function: <Fkt A    : falcutaet(5)> .......................................... failed (Dimension: (1x1) ~= (%dx%d))!\n'
                      '003: !!! Function: <Fkt I    : linquadref(0.0,0.0)> ................................... failed (Dimension: (4x1) ~= (%dx%d))!\n'
                      '004: !!! Function: <Fkt I    : linquadref(0.577,-0.577)> .............................. failed (Dimension: (4x1) ~= (%dx%d))!\n'
                      '005: !!! Function: <Fkt II   : linquadderivref(0.0,0.0)> .............................. failed (Dimension: (4x2) ~= (%dx%d))!\n'
@@ -137,8 +137,8 @@ test_wrong_size =   {'001: !!! Function: <Fkt 0    : falcutaet(0)> .............
                      '                               [20;21;19;1;18],[2,−7;5,−2]), rhs> ..................... failed (Dimension: (5x1) ~= (%dx%d))!\n']
                      };
 
-test_error        = {'001: !!! Function: <Fkt 0    : falcutaet(0)> .......................................... failed (error occured within function)!\n'
-                     '002: !!! Function: <Fkt 0    : falcutaet(5)> .......................................... failed (error occured within function)!\n'
+test_error        = {'001: !!! Function: <Fkt A    : falcutaet(0)> .......................................... failed (error occured within function)!\n'
+                     '002: !!! Function: <Fkt A    : falcutaet(5)> .......................................... failed (error occured within function)!\n'
                      '003: !!! Function: <Fkt I    : linquadref(0.0,0.0)> ................................... failed (error occured within function)!\n'
                      '004: !!! Function: <Fkt I    : linquadref(0.577,-0.577)> .............................. failed (error occured within function)!\n'
                      '005: !!! Function: <Fkt II   : linquadderivref(0.0,0.0)> .............................. failed (error occured within function)!\n'
