@@ -25,51 +25,29 @@ f_diff =@(x) (5.*x.^4)./(x + 1).^5 - (5.*x.^5)./(x + 1).^6;
 f_diff_exakt =@(x0) f_diff(x0);
 
 %% Plotten des Fehlers der Finite-Differenzen-Approximation:
-%% x0 = 0.6
-x0 = 0.6;
-figure(1)
+x0 = [0.6 2.0];
+
+for i = 1:length(x0)
+figure(i)
 hold on
 
-plot(h,h,'k:','DisplayName','h');
-plot(h,abs(f_diff_exakt(x0)-f_diff_2P(x0)), 'DisplayName','Zweipunkte-Formel') % Zweipunkte-Formel
+plot(h,h,'k:','DisplayName','h', 'LineWidth', 1);
+plot(h,abs(f_diff_exakt(x0(i))-f_diff_2P(x0(i))),'LineWidth', 1, 'DisplayName','Zweipunkte-Formel') % Zweipunkte-Formel
 
 
-plot(h,h.^2,'k--','DisplayName','h^2');
-plot(h,abs(f_diff_exakt(x0)-f_diff_3PE(x0)), 'DisplayName', 'Dreipunkte-Endpunkt-Formel') % Dreipunkte-Endpunkt-Formel
-plot(h,abs(f_diff_exakt(x0)-f_diff_3PM(x0)), 'DisplayName', 'Dreipunkte-Mittelpunkt-Formel') % Dreipunkte-Mittelpunkt-Formel
+plot(h,h.^2,'k--','DisplayName','h^2','LineWidth', 1);
+plot(h,abs(f_diff_exakt(x0(i))-f_diff_3PE(x0(i))), 'LineWidth', 1, 'DisplayName', 'Dreipunkte-Endpunkt-Formel') % Dreipunkte-Endpunkt-Formel
+plot(h,abs(f_diff_exakt(x0(i))-f_diff_3PM(x0(i))), 'LineWidth', 1, 'DisplayName', 'Dreipunkte-Mittelpunkt-Formel') % Dreipunkte-Mittelpunkt-Formel
 
 
-plot(h,h.^4,'k-.','DisplayName','h^4');
-plot(h,abs(f_diff_exakt(x0)-f_diff_5P(x0)),'DisplayName', 'Fünfpunkte-Mittelpunkt-Formel') % Fünfpunkte-Mittelpunkt-Formel
+plot(h,h.^4,'k-.','DisplayName','h^4', 'LineWidth', 1);
+plot(h,abs(f_diff_exakt(x0(i))-f_diff_5P(x0(i))),'LineWidth', 1, 'DisplayName', 'Fünfpunkte-Mittelpunkt-Formel') % Fünfpunkte-Mittelpunkt-Formel
 
 set(gca, 'XScale', 'log');
 set(gca, 'YScale', 'log');
-title('Konvegenzplot Finite Differenzen für x_0 = 0.6')
+title(['Konvegenzplot Finite Differenzen für x_0 = ', num2str(x0(i))])
 xlabel('h')
 ylabel("|f'(x = x_0) - f_{approx}(x = x_0)|")
 legend('Location','northwest')
 
-%% x0 = 2.0
-x0 = 2.0;
-figure(2)
-hold on
-
-plot(h,h,'k:','DisplayName','h');
-plot(h,abs(f_diff_exakt(x0)-f_diff_2P(x0)), 'DisplayName','Zweipunkte-Formel') % Zweipunkte-Formel
-
-
-plot(h,h.^2,'k--','DisplayName','h^2');
-plot(h,abs(f_diff_exakt(x0)-f_diff_3PE(x0)), 'DisplayName', 'Dreipunkte-Endpunkt-Formel') % Dreipunkte-Endpunkt-Formel
-plot(h,abs(f_diff_exakt(x0)-f_diff_3PM(x0)), 'DisplayName', 'Dreipunkte-Mittelpunkt-Formel') % Dreipunkte-Mittelpunkt-Formel
-
-
-plot(h,h.^4,'k-.','DisplayName','h^4');
-plot(h,abs(f_diff_exakt(x0)-f_diff_5P(x0)),'DisplayName', 'Fünfpunkte-Mittelpunkt-Formel') % Fünfpunkte-Mittelpunkt-Formel
-
-set(gca, 'XScale', 'log');
-set(gca, 'YScale', 'log');
-title('Konvegenzplot Finite Differenzen für x_0 = 2.0')
-xlabel('h')
-ylabel("|f'(x = x_0) - f_{approx}(x = x_0)|")
-legend('Location','northwest')
-
+end
