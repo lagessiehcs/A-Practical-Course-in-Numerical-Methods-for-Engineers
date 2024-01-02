@@ -22,7 +22,6 @@ for k = 1:size(gpx,1)  % Schleife über alle Gaußpunkte im Element
             elemat(i,j) = elemat(i,j) + lambda*grad_N(i,:)*grad_N(j,:)'*detJ*gpw(k);
         end
     end
-
-elevec = zeros(size(elemat,1),1);
-
 end
+
+elevec = zeros(4,1);
