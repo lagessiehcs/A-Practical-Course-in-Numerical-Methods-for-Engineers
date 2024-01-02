@@ -10,7 +10,7 @@ function [elemat,elevec] = evaluate_stat(elenodes,gpx,gpw)
 % =========================================================================
 lamda = 48;
 
-grad_N = zeros(4,1);
+grad_N = zeros(4,2);
 elemat = zeros(size(grad_N,1));
 
 for k = 1:size(gpx,1)  % Schleife über alle Gaußpunkte im Element
