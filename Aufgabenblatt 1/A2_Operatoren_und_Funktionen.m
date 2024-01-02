@@ -57,4 +57,4 @@ end
 % f1 = facultaet(0)
 % f2 = facultaet(5)
 % f3 = facultaet(-1)
-f4 = facultaet(1.5)
+f4 = facultaet(1.5);
