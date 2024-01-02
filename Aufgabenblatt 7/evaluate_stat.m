@@ -23,5 +23,6 @@ for k = 1:size(gpx,1)  % Schleife über alle Gaußpunkte im Element
         end
     end
 end
-
 elevec = zeros(4,1);
+
+end
