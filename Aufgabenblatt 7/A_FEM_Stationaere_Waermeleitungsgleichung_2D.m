@@ -99,7 +99,7 @@ while(any(T(15:18)>450))
     [sysmat,rhs] = assignDBC(sysmat,rhs,dbc);
     
     % A*T=f nach T lösen
-    T = sysmat^(-1) * rhs;
+    T = sysmat\rhs;
     % T = linsolve(sysmat,rhs);
   
     if r == 0.02 % Lösung für den ersten Teil der Aufgabe
