@@ -52,13 +52,13 @@ for i = 1:size(elemat,1) % Schleife über alle Zeilen der Elementmatrix
                     [elemat(i,j),vec] = OST(theta,timestep,M(i,j),[B(i,j) B(i,j)],[0 0],elesol(j)); 
                     elevec(i) = elevec(i) + vec;  
                 case 2 % AB2                    
-                    [elemat(i,j),vec] = AB2(theta,timestep,M(i,j),[B(i,j) B(i,j)],[0 0],[elesol eleosol]);    
+                    [elemat(i,j),vec] = AB2(timestep,M(i,j),[B(i,j) B(i,j)],[0 0],[elesol(j) eleosol(j)]);    
                     elevec(i) = elevec(i) + vec;  
                 case 3 % AM3                          
-                    [elemat(i,j),vec] = AM3(theta,timestep,M(i,j),[B(i,j) B(i,j) B(i,j)],[0 0 0],[elesol eleosol]);   
+                    [elemat(i,j),vec] = AM3(timestep,M(i,j),[B(i,j) B(i,j) B(i,j)],[0 0 0],[elesol(j) eleosol(j)]);   
                     elevec(i) = elevec(i) + vec;  
                 case 4 % BDF2
-                    [elemat(i,j),vec] = BDF2(theta,timestep,M(i,j),B(i,j), 0,[elesol eleosol]); 
+                    [elemat(i,j),vec] = BDF2(timestep,M(i,j),B(i,j), 0,[elesol(j) eleosol(j)]); 
                     elevec(i) = elevec(i) + vec;  
             end
         end
