@@ -72,7 +72,7 @@ T_solution = zeros(18,2);
 
 %% Schleife über r bis Temperatur am Rand (y = h) kleiner 450K:
 
-while(any(T(15:18)>450))
+while(max(T(15:18)>450))
 
     % Knoten, Matrizen und Vektoren initialisieren
     elemat = zeros(4,4,10); % Elementmatrix Ae: 10 Elemente, eine (4,4)-Matrix pro Element
