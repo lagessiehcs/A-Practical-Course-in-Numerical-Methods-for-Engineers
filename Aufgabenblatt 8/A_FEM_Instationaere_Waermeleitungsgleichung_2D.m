@@ -183,7 +183,7 @@ for i = 0:size(T,2)
         quadplot(Knoten,ele,T(:,i))
     end
     
-    title(['Temperatur zum Zeitpunkt t = ', num2str(i*timestep),'s, OST(\Deltat = 500s)'])
+    title(['Temperatur zum Zeitpunkt t = ', num2str(i*timestep),'s, OST(\Deltat = ', num2str(timestep),'s)'])
     colormap hot    
     xlim([0 b])
     ylim([0 h])
@@ -205,7 +205,7 @@ for i = 1:length(t_plot)
     
     figure(1+i)
     quadplot(Knoten,ele,T_plot(:,i))
-    title(['Temperatur zum Zeitpunkt t = ', num2str(t_plot(i)),'s, OST(\Deltat = 500s)'])
+    title(['Temperatur zum Zeitpunkt t = ', num2str(t_plot(i)),'s, OST(\Deltat = ', num2str(timestep),'s)'])
     colormap hot    
     xlim([0 b])
     ylim([0 h])
