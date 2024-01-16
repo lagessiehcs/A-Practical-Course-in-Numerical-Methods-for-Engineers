@@ -7,7 +7,7 @@ addpath("..\Aufgabenblatt 1\","..\Aufgabenblatt 3\","..\Aufgabenblatt 5\","..\Au
 
 % Geg.: Einschritt-θ-Verfahren mit θ = 0.5 und einer Zeitschrittlänge von 
 % ∆t = 500s:
-timInt_m = 1; % [Zeitintegrationsverfahren: 1 = OST, 2 = AB2, 3 = AM3, 4 = BDF2]
+timInt_m = 2; % [Zeitintegrationsverfahren: 1 = OST, 2 = AB2, 3 = AM3, 4 = BDF2]
 theta    = 0.5;
 timestep = 500;
 t_s      = 5000; % t*
@@ -134,7 +134,7 @@ for step = 0:length(0:timestep:t_s)-2 % Schleife über t = t0..t10
     
         % Elementmatrix Ae und Elementvektor fe
         [elemat(:,:,i),elevec(:,i)] = evaluate_instat(elenodes,gpx,gpw,elesol(:,i), ...
-                                      eleosol(:,i),timInt_m,timestep,theta,step);
+                                      eleosol(:,i),timInt_m,timestep,theta,step==1);
     
         % Systemmatrix A und Systemvektor f
         [sysmat,rhs] = assemble(elemat(:,:,i),elevec(:,i),sysmat,rhs,ele(i,:));
@@ -208,9 +208,9 @@ for i = 1:length(t_plot)
     quadplot(Knoten,ele,T_plot(:,i))
     title(['Temperatur zum Zeitpunkt t = ', num2str(i*timestep),'s, ',verfahren{timInt_m},'(\Deltat = ', num2str(timestep),'s)'])
     colormap hot    
-    xlim([0 b])
-    ylim([0 h])
-    zlim([T_R2 T_R1])
+    % xlim([0 b])
+    % ylim([0 h])
+    % zlim([T_R2 T_R1])
     xlabel('x')
     ylabel('y')
     zlabel('T(x,y)')
