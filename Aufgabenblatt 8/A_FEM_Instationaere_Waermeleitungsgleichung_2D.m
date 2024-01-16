@@ -115,7 +115,7 @@ for step = 0:length(0:timestep:t_s)-2 % Schleife über t = t0..t10
     if step > 0 
         T_this_step = T(:,step);
 
-        % Wenn step == 1, Temperatur in last step is T0, nimm die nimm den 
+        % Wenn step == 1, Temperatur in last step is T0, nimm den 
         % initialisierten Wert für T_last_step, sonst:
         if step > 1 
             T_last_step = T(:,step-1);
