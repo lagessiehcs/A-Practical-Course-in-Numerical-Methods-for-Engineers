@@ -3,16 +3,25 @@ clear
 clc
 addpath("..\Aufgabenblatt 1\","..\Aufgabenblatt 3\","..\Aufgabenblatt 5\","..\Aufgabenblatt 6\","..\Aufgabenblatt 7\")
 
-%% Initialisierung
+%% Parameter
+% Verfahren, θ und Zeitschrittlänge von ∆t sind gegeben und können hier 
+% eingestellt werden.
 
-% Geg.: Einschritt-θ-Verfahren mit θ = 0.5 und einer Zeitschrittlänge von 
-% ∆t = 500s:
-plot_ergebnis = false; % sollen Ergebnisse geplottet werden?
-timInt_m = 2; % [Zeitintegrationsverfahren: 1 = OST, 2 = AB2, 3 = AM3, 4 = BDF2]
+timInt_m = 4; % [Zeitintegrationsverfahren: 1 = OST, 2 = AB2, 3 = AM3, 4 = BDF2]
 theta    = 0.5;
-timestep = 10;
+timestep = 500;
 t_s      = 5000; % t*
 
+% Außerdem kan ausgewählt werden, ob die Ergebnisse geplottet werden
+% sollen.
+plot_ergebnis = 1;
+
+% Plot Geschwindigkeit
+% max = 1 eingeben for max speed
+max_speed = 1;
+plot_geschwindigkeit = 10; 
+
+%% Initialisierung
 % Temperatur am Rand
 T_0  = 300;
 T_R1 = 600;
@@ -135,7 +144,7 @@ for step = 0:length(0:timestep:t_s)-2 % Schleife über t = t0..t10
     
         % Elementmatrix Ae und Elementvektor fe
         [elemat(:,:,i),elevec(:,i)] = evaluate_instat(elenodes,gpx,gpw,elesol(:,i), ...
-                                      eleosol(:,i),timInt_m,timestep,theta,step==1);
+                                      eleosol(:,i),timInt_m,timestep,theta,step==0);
     
         % Systemmatrix A und Systemvektor f
         [sysmat,rhs] = assemble(elemat(:,:,i),elevec(:,i),sysmat,rhs,ele(i,:));
@@ -166,7 +175,7 @@ T_16_5000 = T_5000(16);
 T_17_5000 = T_5000(17);
 T_18_5000 = T_5000(18);
 
-T_t_krit  = T(:,t_krit/timestep);
+T_t_krit    = T(:,t_krit/timestep);
 T_15_t_krit = T_t_krit(15);
 T_16_t_krit = T_t_krit(16);
 T_17_t_krit = T_t_krit(17);
@@ -188,18 +197,22 @@ if plot_ergebnis
         end
     
         title(['Temperatur zum Zeitpunkt t = ', num2str(i*timestep),'s, ',verfahren{timInt_m},'(\Deltat = ', num2str(timestep),'s)'])
-        colormap hot    
-        % xlim([0 b])
-        % ylim([0 h])
-        % zlim([T_R2 T_R1])
+        colormap hot        
+        xlim([0 b])
+        ylim([0 h])
+        if timInt_m == 1
+            zlim([T_R2 T_R1])
+        end
         xlabel('x')
         ylabel('y')
         zlabel('T(x,y)')
         shading interp
         view(210,30)
-        colorbar  
-    
-        pause(1)
+        colorbar
+        
+        if ~max_speed
+            pause(1/plot_geschwindigkeit)
+        end
     
     end
     
@@ -211,9 +224,11 @@ if plot_ergebnis
         quadplot(Knoten,ele,T_plot(:,i))
         title(['Temperatur zum Zeitpunkt t = ', num2str(i*timestep),'s, ',verfahren{timInt_m},'(\Deltat = ', num2str(timestep),'s)'])
         colormap hot    
-        % xlim([0 b])
-        % ylim([0 h])
-        % zlim([T_R2 T_R1])
+        xlim([0 b])
+        ylim([0 h])
+        if timInt_m == 1
+            zlim([T_R2 T_R1])
+        end
         xlabel('x')
         ylabel('y')
         zlabel('T(x,y)')
