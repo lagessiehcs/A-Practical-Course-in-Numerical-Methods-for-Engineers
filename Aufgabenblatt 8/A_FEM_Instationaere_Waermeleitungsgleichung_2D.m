@@ -7,7 +7,7 @@ addpath("..\Aufgabenblatt 1\","..\Aufgabenblatt 3\","..\Aufgabenblatt 5\","..\Au
 
 % Geg.: Einschritt-θ-Verfahren mit θ = 0.5 und einer Zeitschrittlänge von 
 % ∆t = 500s:
-timInt_m = 2; % [Zeitintegrationsverfahren: 1 = OST, 2 = AB2, 3 = AM3, 4 = BDF2]
+timInt_m = 1; % [Zeitintegrationsverfahren: 1 = OST, 2 = AB2, 3 = AM3, 4 = BDF2]
 theta    = 0.5;
 timestep = 500;
 t_s      = 5000; % t*
@@ -75,7 +75,7 @@ Knoten   =     [        0                   0               % Knote 1
 
 
 
-%% Schleife über t = 0:dt:1_s 
+%% Schleife über t = 0:dt:t_s 
 
 % Zeit initialisieren
 t = 0;
