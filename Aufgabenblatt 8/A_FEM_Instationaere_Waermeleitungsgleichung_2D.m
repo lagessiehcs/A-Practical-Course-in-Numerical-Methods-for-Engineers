@@ -7,9 +7,10 @@ addpath("..\Aufgabenblatt 1\","..\Aufgabenblatt 3\","..\Aufgabenblatt 5\","..\Au
 
 % Geg.: Einschritt-θ-Verfahren mit θ = 0.5 und einer Zeitschrittlänge von 
 % ∆t = 500s:
+plot_ergebnis = false; % sollen Ergebnisse geplottet werden?
 timInt_m = 2; % [Zeitintegrationsverfahren: 1 = OST, 2 = AB2, 3 = AM3, 4 = BDF2]
 theta    = 0.5;
-timestep = 500;
+timestep = 10;
 t_s      = 5000; % t*
 
 % Temperatur am Rand
@@ -172,51 +173,54 @@ T_17_t_krit = T_t_krit(17);
 T_18_t_krit = T_t_krit(18);
 
 %% Plot Ergebnis
-verfahren = {'OST' 'AB2' 'AM3' 'BDF2'};
+if plot_ergebnis
 
-% Plot all Zeitschritte von t=0 bis t=5000
-for i = 0:size(T,2)
- 
-    figure(1)   
-    if i == 0
-        quadplot(Knoten,ele,T0)
-    else
-        quadplot(Knoten,ele,T(:,i))
-    end
-
-    title(['Temperatur zum Zeitpunkt t = ', num2str(i*timestep),'s, ',verfahren{timInt_m},'(\Deltat = ', num2str(timestep),'s)'])
-    colormap hot    
-    % xlim([0 b])
-    % ylim([0 h])
-    % zlim([T_R2 T_R1])
-    xlabel('x')
-    ylabel('y')
-    zlabel('T(x,y)')
-    shading interp
-    view(210,30)
-    colorbar  
-
-    pause(1)
-
-end
-
-T_plot = [T_t_krit T_5000];
-t_plot = [t_krit 5000];
-for i = 1:length(t_plot)
+    verfahren = {'OST' 'AB2' 'AM3' 'BDF2'};
     
-    figure(1+i)
-    quadplot(Knoten,ele,T_plot(:,i))
-    title(['Temperatur zum Zeitpunkt t = ', num2str(i*timestep),'s, ',verfahren{timInt_m},'(\Deltat = ', num2str(timestep),'s)'])
-    colormap hot    
-    % xlim([0 b])
-    % ylim([0 h])
-    % zlim([T_R2 T_R1])
-    xlabel('x')
-    ylabel('y')
-    zlabel('T(x,y)')
-    shading interp
-    view(210,30)
-    colorbar       
+    % Plot all Zeitschritte von t=0 bis t=5000
+    for i = 0:size(T,2)
+    
+        figure(1)   
+        if i == 0
+            quadplot(Knoten,ele,T0)
+        else
+            quadplot(Knoten,ele,T(:,i))
+        end
+    
+        title(['Temperatur zum Zeitpunkt t = ', num2str(i*timestep),'s, ',verfahren{timInt_m},'(\Deltat = ', num2str(timestep),'s)'])
+        colormap hot    
+        % xlim([0 b])
+        % ylim([0 h])
+        % zlim([T_R2 T_R1])
+        xlabel('x')
+        ylabel('y')
+        zlabel('T(x,y)')
+        shading interp
+        view(210,30)
+        colorbar  
+    
+        pause(1)
+    
+    end
+    
+    T_plot = [T_t_krit T_5000];
+    t_plot = [t_krit 5000];
+    for i = 1:length(t_plot)
+    
+        figure(1+i)
+        quadplot(Knoten,ele,T_plot(:,i))
+        title(['Temperatur zum Zeitpunkt t = ', num2str(i*timestep),'s, ',verfahren{timInt_m},'(\Deltat = ', num2str(timestep),'s)'])
+        colormap hot    
+        % xlim([0 b])
+        % ylim([0 h])
+        % zlim([T_R2 T_R1])
+        xlabel('x')
+        ylabel('y')
+        zlabel('T(x,y)')
+        shading interp
+        view(210,30)
+        colorbar       
+    end
 end
 
 
