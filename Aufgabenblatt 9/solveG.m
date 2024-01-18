@@ -14,11 +14,22 @@ function x = solveG(A,b,x0,rtol,itermax)
 r = b - A*x0;
 k = 0;
 x = x0;
+
 while norm(r) > rtol && k < itermax
+
+    % Matrix-Vektor-Produkt 
     v = A*r;
+
+    % Relaxationsparameter
     alpha = (r'*r)/(r'*v);
+
+    % Neue Approximation
     x = x + alpha*r;
+
+    % Residuenvektor
     r = r - alpha*v;
+
+    % Erhöhung des Schrittzählers
     k = k + 1;
 end
 
