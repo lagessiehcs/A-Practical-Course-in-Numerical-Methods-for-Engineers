@@ -29,7 +29,7 @@ test_passed       = {'001:     Function: <Fkt A    : falcutaet(0)> .............
                      '025:     Function: <Fkt XII  : BDF2(0.2,[1.1],[1.4],[1.7],[2.0,2.1]), LHS> ............ passed (= 1.37, tol = 1e-12)!\n'
                      '026:     Function: <Fkt XII  : BDF2(0.2,[1.1],[1.4],[1.7],[2.0,2.1]), RHS> ............ passed (= 3.585, tol = 1e-12)!\n'
                      ''
-                     ''
+                     '028:     Function: <Fkt XIV  : solveGauss([10.0,2,1;3,4,4;1,8,4],[1;1;2])> ............ passed (= [0.051282051282051;0.275641025641026;-0.064102564102564])!\n'
                      ''
                     ['030:     Function: <Fkt XVII : evaluate_stat([0,0;1,0;1,2;0,2],gx2dref(3),\n' ...
                      '                               gw2dref(3)), elemat> ................................... passed (= [40 -28 -20 8; -28 40 8 -20; -20 8 40 -28; 8 -20 -28 40], tol = 1e-12)!\n']
@@ -40,9 +40,9 @@ test_passed       = {'001:     Function: <Fkt A    : falcutaet(0)> .............
                     ['033:     Function: <Fkt XVIII: assemble([1,2,3,4;5,6,7,8;9,10,11,12;13,14,15,16],\n' ...
                      '                               [17;18;19;20],eye(5,5),ones(5,1),[5,3,1,2]), rhs> ...... passed (= [20;21;19;1;18], tol = 1e-12)!\n']
                     ['034:     Function: <Fkt XIX  : assignDBC([12,12,10,0,9;15,17,14,0,13;7,8,7,0,5;0,0,0,1,0;3,4,2,0,2],\n'...
-                     '                               [20;21;19;1;18],[2,−7;5,−2]), sysmat> .................. passed (= [12,12,10,0,9;0,1,0,0,0;7,8,7,0,5;0,0,0,1,0;0,0,0,0,1], tol = 1e-12)!\n']
+                     '                               [20;21;19;1;18],[2,-7;5,-2]), sysmat> .................. passed (= [12,12,10,0,9;0,1,0,0,0;7,8,7,0,5;0,0,0,1,0;0,0,0,0,1], tol = 1e-12)!\n']
                     ['035:     Function: <Fkt XIX  : assignDBC([12,12,10,0,9;15,17,14,0,13;7,8,7,0,5;0,0,0,1,0;3,4,2,0,2],\n'...
-                     '                               [20;21;19;1;18],[2,−7;5,−2]), rhs> ..................... passed (= [20;-7;19;1;-2], tol = 1e-12)!\n']
+                     '                               [20;21;19;1;18],[2,-7;5,-2]), rhs> ..................... passed (= [20;-7;19;1;-2], tol = 1e-12)!\n']
                     ['036:     Function: <Fkt XX   : evaluate_instat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3),\n' ...
                      '                               [1;2;3;4],[0;0;0;0],1,1000,0.66,1), elemat> ............ passed (= [809866.67,373253.33,182666.67,397013.33;373253.33,809866.67,397013.33,182666.67;182666.67,397013.33,809866.67,373253.33;397013.33,182666.67,373253.33,809866.67], tol = 1e-12)!\n']
                     ['037:     Function: <Fkt XX   : evaluate_instat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3),\n' ...
@@ -80,7 +80,7 @@ test_failed       = {'001: !!! Function: <Fkt A    : falcutaet(0)> .............
                      '025: !!! Function: <Fkt XII  : BDF2(0.2,[1.1],[1.4],[1.7],[2.0,2.1]), LHS> ............ failed (1.37 ~= %f, diff = %f, tol = 1e-12)!\n'
                      '026: !!! Function: <Fkt XII  : BDF2(0.2,[1.1],[1.4],[1.7],[2.0,2.1]), RHS> ............ failed (3.585 ~= %f, diff = %f, tol = 1e-12)!\n'
                      ''
-                     ''
+                     '028: !!! Function: <Fkt XIV  : solveGauss([10.0,2,1;3,4,4;1,8,4],[1;1;2])> ............ failed ([0.051282051282051;0.275641025641026;-0.064102564102564] ~= [%f;%f;%f], diff = [%f;%f;%f], tol = 1e-12)!\n'
                      ''
                     ['030: !!! Function: <Fkt XVII : evaluate_stat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3)),\n ' ...
                      '                               elemat> ................................................ failed ([40 -28 -20 8; -28 40 8 -20; -20 8 40 -28; 8 -20 -28 40] ~= [%f %f %f %f; %f %f %f %f; %f %f %f %f; %f %f %f %f], diff = [%f %f %f %f; %f %f %f %f; %f %f %f %f; %f %f %f %f], tol = 1e-12)!\n']
@@ -91,9 +91,9 @@ test_failed       = {'001: !!! Function: <Fkt A    : falcutaet(0)> .............
                     ['033: !!! Function: <Fkt XVIII: assemble([1,2,3,4;5,6,7,8;9,10,11,12;13,14,15,16],\n' ...
                      '                               [17;18;19;20],eye(5,5),ones(5,1),[5,3,1,2]), rhs> ...... failed ([20;21;19;1;18] ~= [%f;%f;%f;%f;%f], diff = [%f;%f;%f;%f;%f], tol = 1e-12)!\n']
                     ['034: !!! Function: <Fkt XIX  : assignDBC([12,12,10,0,9;15,17,14,0,13;7,8,7,0,5;0,0,0,1,0;3,4,2,0,2],\n'...
-                     '                               [20;21;19;1;18],[2,−7;5,−2]), sysmat> .................. failed ([12,12,10,0,9;0,1,0,0,0;7,8,7,0,5;0,0,0,1,0;0,0,0,0,1] ~= [%f,%f,%f,%f,%f;%f,%f,%f,%f,%f;%f,%f,%f,%f,%f;%f,%f,%f,%f,%f;%f,%f,%f,%f,%f], diff = [%f,%f,%f,%f,%f;%f,%f,%f,%f,%f;%f,%f,%f,%f,%f;%f,%f,%f,%f,%f;%f,%f,%f,%f,%f], tol = 1e-12)!\n']
+                     '                               [20;21;19;1;18],[2,-7;5,-2]), sysmat> .................. failed ([12,12,10,0,9;0,1,0,0,0;7,8,7,0,5;0,0,0,1,0;0,0,0,0,1] ~= [%f,%f,%f,%f,%f;%f,%f,%f,%f,%f;%f,%f,%f,%f,%f;%f,%f,%f,%f,%f;%f,%f,%f,%f,%f], diff = [%f,%f,%f,%f,%f;%f,%f,%f,%f,%f;%f,%f,%f,%f,%f;%f,%f,%f,%f,%f;%f,%f,%f,%f,%f], tol = 1e-12)!\n']
                     ['035: !!! Function: <Fkt XIX  : assignDBC([12,12,10,0,9;15,17,14,0,13;7,8,7,0,5;0,0,0,1,0;3,4,2,0,2],\n'...
-                     '                               [20;21;19;1;18],[2,−7;5,−2]), rhs> ..................... failed ([20;-7;19;1;-2] ~= [%f;%f;%f;%f;%f], diff = [%f;%f;%f;%f;%f], tol = 1e-12)!\n'] 
+                     '                               [20;21;19;1;18],[2,-7;5,-2]), rhs> ..................... failed ([20;-7;19;1;-2] ~= [%f;%f;%f;%f;%f], diff = [%f;%f;%f;%f;%f], tol = 1e-12)!\n'] 
                     ['036: !!! Function: <Fkt XX   : evaluate_instat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3),\n' ...
                      '                               [1;2;3;4],[0;0;0;0],1,1000,0.66,1), elemat> ............ failed ([809866.67,373253.33,182666.67,397013.33;373253.33,809866.67,397013.33,182666.67;182666.67,397013.33,809866.67,373253.33;397013.33,182666.67,373253.33,809866.67] ~= [%f,%f,%f,%f;%f,%f,%f,%f;%f,%f,%f,%f;%f,%f,%f,%f], diff = [%f,%f,%f,%f;%f,%f,%f,%f;%f,%f,%f,%f;%f,%f,%f,%f], tol = 1e-12)!\n']
                     ['037: !!! Function: <Fkt XX   : evaluate_instat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3),\n' ...
@@ -129,7 +129,7 @@ test_wrong_size =   {'001: !!! Function: <Fkt A    : falcutaet(0)> .............
                      '025: !!! Function: <Fkt XII  : BDF2(0.2,[1.1],[1.4],[1.7],[2.0,2.1]), LHS> ............ failed (Dimension: (1x1) ~= (%dx%d))!\n'
                      '026: !!! Function: <Fkt XII  : BDF2(0.2,[1.1],[1.4],[1.7],[2.0,2.1]), RHS> ............ failed (Dimension: (1x1) ~= (%dx%d))!\n'
                      ''
-                     ''
+                     '028: !!! Function: <Fkt XIV  : solveGauss([10.0,2,1;3,4,4;1,8,4],[1;1;2])> ............ failed (Dimension: (3x1) ~= (%dx%d))!\n'
                      ''
                     ['030: !!! Function: <Fkt XVII : evaluate_stat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3)),\n ' ...
                      '                               elemat> ................................................ failed (Dimension: (4x4) ~= (%dx%d))!\n']
@@ -140,61 +140,61 @@ test_wrong_size =   {'001: !!! Function: <Fkt A    : falcutaet(0)> .............
                     ['033: !!! Function: <Fkt XVIII: assemble([1,2,3,4;5,6,7,8;9,10,11,12;13,14,15,16],\n' ...
                      '                               [17;18;19;20],eye(5,5),ones(5,1),[5,3,1,2]), rhs> ...... failed (Dimension: (5x1) ~= (%dx%d))!\n']
                     ['034: !!! Function: <Fkt XIX  : assignDBC([12,12,10,0,9;15,17,14,0,13;7,8,7,0,5;0,0,0,1,0;3,4,2,0,2],\n'...
-                     '                               [20;21;19;1;18],[2,−7;5,−2]), sysmat> .................. failed (Dimension: (5x5) ~= (%dx%d))!\n']
+                     '                               [20;21;19;1;18],[2,-7;5,-2]), sysmat> .................. failed (Dimension: (5x5) ~= (%dx%d))!\n']
                     ['035: !!! Function: <Fkt XIX  : assignDBC([12,12,10,0,9;15,17,14,0,13;7,8,7,0,5;0,0,0,1,0;3,4,2,0,2],\n'...
-                     '                               [20;21;19;1;18],[2,−7;5,−2]), rhs> ..................... failed (Dimension: (5x1) ~= (%dx%d))!\n']
+                     '                               [20;21;19;1;18],[2,-7;5,-2]), rhs> ..................... failed (Dimension: (5x1) ~= (%dx%d))!\n']
                     ['036: !!! Function: <Fkt XX   : evaluate_instat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3),\n' ...
                      '                               [1;2;3;4],[0;0;0;0],1,1000,0.66,1), elemat> ............ failed (Dimension: (4x4) ~= (%dx%d))!\n']
                     ['037: !!! Function: <Fkt XX   : evaluate_instat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3),\n' ...
                      '                               [1;2;3;4],[0;0;0;0],1,1000,0.66,1), elevec> ............ failed (Dimension: (4x4) ~= (%dx%d))!\n']
                      };
 
-test_error        = {'001: !!! Function: <Fkt A    : falcutaet(0)> .......................................... failed (error occured within function)!\n'
-                     '002: !!! Function: <Fkt A    : falcutaet(5)> .......................................... failed (error occured within function)!\n'
-                     '003: !!! Function: <Fkt I    : linquadref(0.0,0.0)> ................................... failed (error occured within function)!\n'
-                     '004: !!! Function: <Fkt I    : linquadref(0.577,-0.577)> .............................. failed (error occured within function)!\n'
-                     '005: !!! Function: <Fkt II   : linquadderivref(0.0,0.0)> .............................. failed (error occured within function)!\n'
-                     '006: !!! Function: <Fkt II   : linquadderivref(0.577,-0.577)> ......................... failed (error occured within function)!\n'
-                     '007: !!! Function: <Fkt III  : gx(3)> ................................................. failed (error occured within function)!\n'
-                     '008: !!! Function: <Fkt IV   : gw(3)> ................................................. failed (error occured within function)!\n'
-                     '009: !!! Function: <Fkt V    : gx2dref(1)> ............................................ failed (error occured within function)!\n'
-                     '010: !!! Function: <Fkt V    : gx2dref(2)> ............................................ failed (error occured within function)!\n'  
-                     '011: !!! Function: <Fkt V    : gx2dref(3)> ............................................ failed (error occured within function)!\n'
-                     '012: !!! Function: <Fkt VI   : gw2dref(1)> ............................................ failed (error occured within function)!\n'
-                     '013: !!! Function: <Fkt VI   : gw2dref(2)> ............................................ failed (error occured within function)!\n'  
-                     '014: !!! Function: <Fkt VI   : gw2dref(3)> ............................................ failed (error occured within function)!\n'
-                     '015: !!! Function: <Fkt VII  : getxPos([2,1;4,1;4,3;2,2],0.577,-0.577)> ............... failed (error occured within function)!\n'
-                     '016: !!! Function: <Fkt VIII : getJacobian([2,1;4,1;4,3;2,2],0.577,-0.577), J> ........ failed (error occured within function)!\n'
-                     '017: !!! Function: <Fkt VIII : getJacobian([2,1;4,1;4,3;2,2],0.577,-0.577), detJ> ..... failed (error occured within function)!\n'
-                     '018: !!! Function: <Fkt VIII : getJacobian([2,1;4,1;4,3;2,2],0.577,-0.577), invJ> ..... failed (error occured within function)!\n'
-                     '019: !!! Function: <Fkt IX   : OST(0.5,0.2,[1.1],[1.4,1.5],[1.7, 1.8],[2.0]), LHS> .... failed (error occured within function)!\n'
-                     '020: !!! Function: <Fkt IX   : OST(0.5,0.2,[1.1],[1.4,1.5],[1.7, 1.8],[2.0]), RHS> .... failed (error occured within function)!\n'                     
-                     '021: !!! Function: <Fkt X    : AB2(0.2,[1.1],[1.5,1.6],[1.8,1.9],[2.0,2.1]), LHS> ..... failed (error occured within function)!\n'
-                     '022: !!! Function: <Fkt X    : AB2(0.2,[1.1],[1.5,1.6],[1.8,1.9],[2.0,2.1]), RHS> ..... failed (error occured within function)!\n'
+test_error        = {'001: !!! Function: <Fkt A    : falcutaet(0)> .......................................... failed (An error occurred:)!\n'
+                     '002: !!! Function: <Fkt A    : falcutaet(5)> .......................................... failed (An error occurred:)!\n'
+                     '003: !!! Function: <Fkt I    : linquadref(0.0,0.0)> ................................... failed (An error occurred:)!\n'
+                     '004: !!! Function: <Fkt I    : linquadref(0.577,-0.577)> .............................. failed (An error occurred:)!\n'
+                     '005: !!! Function: <Fkt II   : linquadderivref(0.0,0.0)> .............................. failed (An error occurred:)!\n'
+                     '006: !!! Function: <Fkt II   : linquadderivref(0.577,-0.577)> ......................... failed (An error occurred:)!\n'
+                     '007: !!! Function: <Fkt III  : gx(3)> ................................................. failed (An error occurred:)!\n'
+                     '008: !!! Function: <Fkt IV   : gw(3)> ................................................. failed (An error occurred:)!\n'
+                     '009: !!! Function: <Fkt V    : gx2dref(1)> ............................................ failed (An error occurred:)!\n'
+                     '010: !!! Function: <Fkt V    : gx2dref(2)> ............................................ failed (An error occurred:)!\n'  
+                     '011: !!! Function: <Fkt V    : gx2dref(3)> ............................................ failed (An error occurred:)!\n'
+                     '012: !!! Function: <Fkt VI   : gw2dref(1)> ............................................ failed (An error occurred:)!\n'
+                     '013: !!! Function: <Fkt VI   : gw2dref(2)> ............................................ failed (An error occurred:)!\n'  
+                     '014: !!! Function: <Fkt VI   : gw2dref(3)> ............................................ failed (An error occurred:)!\n'
+                     '015: !!! Function: <Fkt VII  : getxPos([2,1;4,1;4,3;2,2],0.577,-0.577)> ............... failed (An error occurred:)!\n'
+                     '016: !!! Function: <Fkt VIII : getJacobian([2,1;4,1;4,3;2,2],0.577,-0.577), J> ........ failed (An error occurred:)!\n'
+                     '017: !!! Function: <Fkt VIII : getJacobian([2,1;4,1;4,3;2,2],0.577,-0.577), detJ> ..... failed (An error occurred:)!\n'
+                     '018: !!! Function: <Fkt VIII : getJacobian([2,1;4,1;4,3;2,2],0.577,-0.577), invJ> ..... failed (An error occurred:)!\n'
+                     '019: !!! Function: <Fkt IX   : OST(0.5,0.2,[1.1],[1.4,1.5],[1.7, 1.8],[2.0]), LHS> .... failed (An error occurred:)!\n'
+                     '020: !!! Function: <Fkt IX   : OST(0.5,0.2,[1.1],[1.4,1.5],[1.7, 1.8],[2.0]), RHS> .... failed (An error occurred:)!\n'                     
+                     '021: !!! Function: <Fkt X    : AB2(0.2,[1.1],[1.5,1.6],[1.8,1.9],[2.0,2.1]), LHS> ..... failed (An error occurred:)!\n'
+                     '022: !!! Function: <Fkt X    : AB2(0.2,[1.1],[1.5,1.6],[1.8,1.9],[2.0,2.1]), RHS> ..... failed (An error occurred:)!\n'
                     ['023: !!! Function: <Fkt XI   : AM3(0.2,[1.1],[1.4,1.5,1.6],[1.7,1.8,1.9],[2.0,2.1]),\n' ...
-                     '                               LHS> ................................................... failed (error occured within function)!\n']
+                     '                               LHS> ................................................... failed (An error occurred:)!\n']
                     ['024: !!! Function: <Fkt XI   : AM3(0.2,[1.1],[1.4,1.5,1.6],[1.7,1.8,1.9],[2.0,2.1]),\n' ...
-                     '                               RHS> ................................................... failed (error occured within function)!\n']
-                     '025: !!! Function: <Fkt XII  : BDF2(0.2,[1.1],[1.4],[1.7],[2.0,2.1]), LHS> ............ failed (error occured within function)!\n'
-                     '026: !!! Function: <Fkt XII  : BDF2(0.2,[1.1],[1.4],[1.7],[2.0,2.1]), RHS> ............ failed (error occured within function)!\n'
+                     '                               RHS> ................................................... failed (An error occurred:)!\n']
+                     '025: !!! Function: <Fkt XII  : BDF2(0.2,[1.1],[1.4],[1.7],[2.0,2.1]), LHS> ............ failed (An error occurred:)!\n'
+                     '026: !!! Function: <Fkt XII  : BDF2(0.2,[1.1],[1.4],[1.7],[2.0,2.1]), RHS> ............ failed (An error occurred:)!\n'
                      ''
-                     ''
+                     '028: !!! Function: <Fkt XIV  : solveGauss([10.0,2,1;3,4,4;1,8,4],[1;1;2])> ............ failed (An error occurred:)!\n'
                      ''
                     ['030: !!! Function: <Fkt XVII : evaluate_stat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3)),\n' ...
-                     '                               elemat> ................................................ failed (error occured within function)!\n']
+                     '                               elemat> ................................................ failed (An error occurred:)!\n']
                     ['031: !!! Function: <Fkt XVII : evaluate_stat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3)),\n' ...
-                     '                               elevec> ................................................ failed (error occured within function)!\n']                     
+                     '                               elevec> ................................................ failed (An error occurred:)!\n']                     
                     ['032: !!! Function: <Fkt XVIII: assemble([1,2,3,4;5,6,7,8;9,10,11,12;13,14,15,16],\n' ...
-                     '                               [17;18;19;20],eye(5,5),ones(5,1),[5,3,1,2]), sysmat> ... failed (error occured within function)!\n']
+                     '                               [17;18;19;20],eye(5,5),ones(5,1),[5,3,1,2]), sysmat> ... failed (An error occurred:)!\n']
                     ['033: !!! Function: <Fkt XVIII: assemble([1,2,3,4;5,6,7,8;9,10,11,12;13,14,15,16],\n' ...
-                     '                               [17;18;19;20],eye(5,5),ones(5,1),[5,3,1,2]), rhs> ...... failed (error occured within function)!\n']
+                     '                               [17;18;19;20],eye(5,5),ones(5,1),[5,3,1,2]), rhs> ...... failed (An error occurred:)!\n']
                     ['034: !!! Function: <Fkt XIX  : assignDBC([12,12,10,0,9;15,17,14,0,13;7,8,7,0,5;0,0,0,1,0;3,4,2,0,2],\n'...
-                     '                               [20;21;19;1;18],[2,−7;5,−2]), sysmat> .................. failed (error occured within function)!\n']
+                     '                               [20;21;19;1;18],[2,-7;5,-2]), sysmat> .................. failed (An error occurred:)!\n']
                     ['035: !!! Function: <Fkt XIX  : assignDBC([12,12,10,0,9;15,17,14,0,13;7,8,7,0,5;0,0,0,1,0;3,4,2,0,2],\n'...
-                     '                               [20;21;19;1;18],[2,−7;5,−2]), rhs> ..................... failed (error occured within function)!\n']
+                     '                               [20;21;19;1;18],[2,-7;5,-2]), rhs> ..................... failed (An error occurred:)!\n']
                     ['036: !!! Function: <Fkt XX   : evaluate_instat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3),\n' ...
-                     '                               [1;2;3;4],[0;0;0;0],1,1000,0.66,1), elemat> ............ failed (error occured within function)!\n']
+                     '                               [1;2;3;4],[0;0;0;0],1,1000,0.66,1), elemat> ............ failed (An error occurred:)!\n']
                     ['037: !!! Function: <Fkt XX   : evaluate_instat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3),\n' ...
-                     '                               [1;2;3;4],[0;0;0;0],1,1000,0.66,1), elevec> ............ failed (error occured within function)!\n']
+                     '                               [1;2;3;4],[0;0;0;0],1,1000,0.66,1), elevec> ............ failed (An error occurred:)!\n']
                      
                      };
