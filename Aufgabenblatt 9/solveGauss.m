@@ -2,12 +2,8 @@ function x = solveGauss(A,b)
 % =========================================================================
 % Fkt XIV
 %
-% Für die folgenden Funktionen sind Eingabeparameter wie folgt definiert:
-% A ... Matrix A(nxn) des Gleichungssystems Ax = b,
-% b ... Vektor b des Gleichungssystems Ax = b,
-% x0 ... Startvektor für die Lösung x0,
-% rtol ... Zu erreichende Toleranz der L2-Norm des Residuumsvektors r = b − Ax,
-% itermax ... Maximale Anzahl an Iteration bei der das Verfahren gestoppt wird
+% A ... Matrix A(nxn) des Gleichungssystems Ax = b
+% b ... Vektor b des Gleichungssystems Ax = b
 %
 % Rückgabewert: Spaltenvektor mit Lösung x
 % =========================================================================
