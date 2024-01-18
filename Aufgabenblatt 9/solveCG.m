@@ -42,5 +42,6 @@ while norm(r_k) > rtol && k < itermax
     %  wird jetzt r_k
     r_k = r_kplus1;
 end
+k % Anzahl Iterationen
 
 end

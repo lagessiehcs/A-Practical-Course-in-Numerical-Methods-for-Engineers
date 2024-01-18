@@ -32,5 +32,6 @@ while norm(r) > rtol && k < itermax
     % Erhöhung des Schrittzählers
     k = k + 1;
 end
+k % Anzahl Iterationen
 
 end
