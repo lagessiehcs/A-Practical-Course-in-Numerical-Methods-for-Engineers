@@ -13,8 +13,9 @@ n = size(A,1);
 % Matrix (A|b) auf Zeilenstufenform bringen
 for i = 1:n
     for j = i+1:n
+
         % Multiplikator m_ij = a_ij/a_ii
-        m_ij = A(j,i) / A(i,i);
+        m_ij = A(j,i) / A(i,i);        
         A(j,:) = A(j,:) - m_ij*A(i,:);
         b(j) = b(j) - m_ij*b(i);
     end
