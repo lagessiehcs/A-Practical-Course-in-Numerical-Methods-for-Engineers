@@ -1,4 +1,4 @@
-function x = solveCG(A,b,x0,rtol,itermax)
+function [x,k] = solveCG(A,b,x0,rtol,itermax)
 % =========================================================================
 % Fkt XVI
 %
@@ -8,7 +8,7 @@ function x = solveCG(A,b,x0,rtol,itermax)
 % rtol ... Zu erreichende Toleranz der L2-Norm des Residuumsvektors r = b − Ax
 % itermax ... Maximale Anzahl an Iteration bei der das Verfahren gestoppt wird
 %
-% Rückgabewert: Spaltenvektor mit Lösung x
+% Rückgabewert: Lösung x (Spaltenvektor) und Anzahl der Iterationen k
 % =========================================================================
 
 k = 0;
@@ -42,6 +42,6 @@ while norm(r_k) > rtol && k < itermax
     %  wird jetzt r_k
     r_k = r_kplus1;
 end
-k % Anzahl Iterationen
+
 
 end

@@ -1,4 +1,4 @@
-function x = solveG(A,b,x0,rtol,itermax)
+function [x,k] = solveG(A,b,x0,rtol,itermax)
 % =========================================================================
 % Fkt XV
 %
@@ -8,7 +8,7 @@ function x = solveG(A,b,x0,rtol,itermax)
 % rtol ... Zu erreichende Toleranz der L2-Norm des Residuumsvektors r = b − Ax
 % itermax ... Maximale Anzahl an Iteration bei der das Verfahren gestoppt wird
 %
-% Rückgabewert: Spaltenvektor mit Lösung x
+% Rückgabewert: Lösung x (Spaltenvektor) und Anzahl der Iterationen k
 % =========================================================================
 
 r = b - A*x0;
@@ -32,6 +32,5 @@ while norm(r) > rtol && k < itermax
     % Erhöhung des Schrittzählers
     k = k + 1;
 end
-k % Anzahl Iterationen
 
 end

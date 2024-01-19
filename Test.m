@@ -167,9 +167,9 @@ for test = 1:length(size_result)
             case 27
                 test_function = solveGauss([10.0,2,1;3,4,4;1,8,4],[1;1;2]);
             case 28
-                test_function = solveG([10.0,2.0,10.0;2.0,40.0,8.0;10.0,8.0,60.0],[1.0;1.0;2.0],[0.0;0.0;0.0],1e-7,1000);
+                [test_function,Iterationen] = solveG([10.0,2.0,10.0;2.0,40.0,8.0;10.0,8.0,60.0],[1.0;1.0;2.0],[0.0;0.0;0.0],1e-7,1000);
             case 29
-                test_function = solveCG([10.0,2.0,10.0;2.0,40.0,8.0;10.0,8.0,60.0],[1.0;1.0;2.0],[0.0;0.0;0.0],1e-7,1000);
+                [test_function,Iterationen] = solveCG([10.0,2.0,10.0;2.0,40.0,8.0;10.0,8.0,60.0],[1.0;1.0;2.0],[0.0;0.0;0.0],1e-7,1000);
             case 30
                 [test_function,~] = evaluate_stat([0,0;1,0;1,2;0,2],gx2dref(3),gw2dref(3));
             case 31
@@ -220,6 +220,9 @@ for test = 1:length(size_result)
                 
             else
                 fprintf(test_passed{test})
+                if any(test == [28 29]) 
+                    fprintf("%s(Anzahl der Iterationen: %d)\n", repmat(' ',1,95),Iterationen);
+                end
                 
             end
         end

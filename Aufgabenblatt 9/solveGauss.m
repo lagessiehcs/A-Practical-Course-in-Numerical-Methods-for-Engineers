@@ -5,7 +5,7 @@ function x = solveGauss(A,b)
 % A ... Matrix A(nxn) des Gleichungssystems Ax = b
 % b ... Vektor b des Gleichungssystems Ax = b
 %
-% Rückgabewert: Spaltenvektor mit Lösung x
+% Rückgabewert: Lösung x (Spaltenvektor)
 % =========================================================================
 
 n = size(A,1);
